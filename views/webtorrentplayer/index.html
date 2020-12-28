@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="/views/style.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+
+
+
+
+    <link href="css/main.min.css" rel="stylesheet">
+
+
+  </head>
+
+  <body class="bg-custom text-white">
+
+
+
+    <!-- Masthead -->
+    <header class="masthead text-white">
+      <!-- <div class="overlay"></div> -->
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-12 mx-auto">
+            <p>
+             
+            </p>
+            <form id="magnet-input">
+              <input type="hidden" name="torrentId" value="" id="player">
+              
+              <script>
+                const hash = localStorage.getItem('magnet');
+                var source= document.getElementById('player'); 
+                     source.value =  hash;
+             </script>
+
+
+              <button id="clickButton" style="display: none;"  type="submit">Play</button>
+          
+           
+            </form>
+          
+            <span id="infoMessage"></span>
+            <div class="pswp__preloader__icn">
+              <div class="pswp__preloader__cut">
+                <div class="pswp__preloader__donut"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <script> 
+          window.onload = function(){
+            document.getElementById('clickButton').click();
+          
+        }
+        </script>
+
+    
+<style>
+  
+.pswp__preloader__icn {
+  opacity:0.75;
+  width: 14px;
+  height: 14px;
+  -webkit-animation: clockwise 500ms linear infinite;
+  animation: clockwise 500ms linear infinite;
+}
+
+/* The idea of animating inner circle is based on Polymer loading indicator by Keanu Lee https://blog.keanulee.com/2014/10/20/the-tale-of-three-spinners.html */
+.pswp__preloader__cut {
+  position: relative;
+  width: 7px;
+  height: 14px;
+  overflow: hidden;
+  
+    position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.pswp__preloader__donut--fake {
+   box-sizing: border-box;
+
+  width: 14px;
+	height: 14px;
+	
+  
+  border: 2px solid red;
+   border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  
+	background: none;
+	margin:0;
+}
+
+.pswp__preloader__donut {
+  box-sizing: border-box;
+
+  width: 14px;
+	height: 14px;
+	
+  
+  border: 2px solid #FFF;
+   border-radius: 50%;
+  border-left-color: transparent;
+  border-bottom-color: transparent;
+  
+    position: absolute;
+  top: 0;
+  left: 0;
+ 
+  
+  
+	position: absolute;
+  top: 0;
+  left: 0;
+  
+	background: none;
+	margin:0;
+  
+    -webkit-animation: donut-rotate 1000ms cubic-bezier(.4,0,.22,1) infinite;
+  animation: donut-rotate 1000ms cubic-bezier(.4,0,.22,1) infinite;
+
+}
+
+
+@-webkit-keyframes clockwise {
+  0% { -webkit-transform: rotate(0deg) }
+  100% { -webkit-transform: rotate(360deg) }
+}
+@keyframes clockwise {
+  0% { transform: rotate(0deg) }
+  100% { transform: rotate(360deg) }
+}
+@-webkit-keyframes donut-rotate {
+  0% { -webkit-transform: rotate(0) }
+  50% { -webkit-transform: rotate(-140deg) }
+  100% { -webkit-transform: rotate(0) }
+}
+@keyframes donut-rotate {
+  0% { transform: rotate(0) }
+  50% { transform: rotate(-140deg) }
+  100% { transform: rotate(0) }
+}
+
+</style>
+
+
+
+        <div class="row">
+          <div class="col-xl-12 mx-auto">            
+            <div id="hero">
+              <div id="output">
+                <div id="progressBar"></div>
+                <!-- The video player will be added here -->
+              </div>
+            </div>
+          </div>
+
+          <div id="status" class="col-xl-12 mx-auto">
+            <code id="numPeers">0 peers</code>
+            <span> - </span>
+            <span>Speed </span>            
+            <code id="downloadSpeed">0 b/s</code>
+            <span>Down </span>
+            <span> - </span>            
+            <code id="uploadSpeed">0 b/s</code>
+            <span>Up </span>
+            <span> - </span>            
+            <span id="remaining"></span>
+            <span> - </span>
+            <code id="downloaded">0 MB</code> of <code id="total">0 MB</code>
+            <span></span>
+            <!-- <span class="show-leech d-none">Downloading </span>  -->
+            <!-- <code id="streamedFileName"></code> -->
+            <!-- <span class="show-leech"> - </span> -->
+            <!-- <span class="show-seed d-none">Seeding </span>
+            <span class="show-seed d-none"> to </span> -->
+          </div>
+          
+        </div>         
+        
+
+      </div>
+    </header>
+
+   
+
+
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <script src="js/clipboard.min.js"></script>
+  
+    <!-- Include the latest version of WebTorrent -->
+    <script src="https://cdn.jsdelivr.net/webtorrent/latest/webtorrent.min.js"></script>
+  
+    <!-- `browserify main.js -o bundle.js` -->
+    <script src="js/bundle.js"></script>
+  </body>
+</html>
