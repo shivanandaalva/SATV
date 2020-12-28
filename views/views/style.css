@@ -1,0 +1,173 @@
+/*
+
+:root {
+   color-scheme: light dark; 
+ } */
+
+ .bg-custom {
+   background-color:black;
+}
+
+/* #foo{
+ 
+      background-image: black;  
+      background-repeat: no-repeat;
+      background-size: 180px;
+ 
+} */
+
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.3s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.banner{
+   padding:10px;
+}
+
+@media (min-width: 1024px) {
+.banner{
+   padding:10px;
+   width:75%;
+   display: block;
+   margin-left: auto;
+   margin-right: auto 
+}
+}
+
+img{
+   border-radius: 10px;
+
+}
+
+.content{
+   padding:15px;
+   color:black;
+}
+
+.search{
+   padding:15px;
+}
+
+@media (min-width: 1024px) {
+  
+   .stream{
+      padding:10px;
+      width:60%;
+      height:auto;
+      display: block;
+      margin-left: auto;
+      margin-right: auto
+   }
+   
+ }
+
+
+
+.footer {
+    position:fixed;
+    left:0px;
+    bottom:0px;
+    height:80px;
+    width:100%;
+    background-color:black;
+    border-top-left-radius:10px;
+    border-top-right-radius:10px;
+    display:flex;
+    padding:20px;
+  
+ }
+ .home{
+     font-size: medium;
+     width:20%;
+     height:100%;
+     text-align:center;
+     color:white;
+ }
+ .live{
+    font-size: medium;
+    width:20%;
+    height:100%;
+    text-align:center;
+    color:white;
+ }
+ .movies{
+    font-size: medium;
+    width:20%;
+    height:100%;
+    text-align:center;
+    color:white;
+ }
+ .tvshows{
+    font-size: medium;
+    width:20%;
+    height:100%;
+    text-align:center;
+    color:white;
+ }
+ .animes{
+   font-size: medium;
+   width:20%;
+   height:100%;
+   text-align:center;
+   color:white; 
+ }
+

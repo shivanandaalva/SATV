@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+   
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- Custom styles for this template -->
+    <link href="css/landing-page.min.css" rel="stylesheet">    
+    <link href="css/main.min.css" rel="stylesheet">
+
+
+  </head>
+
+  <body>
+
+
+    <!-- Masthead -->
+    <header class="masthead text-white">
+      <!-- <div class="overlay"></div> -->
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-12 mx-auto">
+            <p>
+              Torrent url, magnet link or infohash:
+            </p>
+            <form id="magnet-input">
+              <input name="torrentId" value="" id="player">
+              
+              <script>
+                const hash = localStorage.getItem('magnet');
+                var source= document.getElementById('player'); 
+                     source.value =  hash;
+             </script>
+
+
+              <button type="submit">Play</button>
+           
+            </form>
+            <span id="infoMessage"></span>
+          </div>
+        </div>
+
+
+
+    
+
+
+
+
+        <div class="row">
+          <div class="col-xl-12 mx-auto">            
+            <div id="hero">
+              <div id="output">
+                <div id="progressBar"></div>
+                <!-- The video player will be added here -->
+              </div>
+            </div>
+          </div>
+
+          <div id="status" class="col-xl-12 mx-auto">
+            <code id="numPeers">0 peers</code>
+            <span> - </span>
+            <span>Speed </span>            
+            <code id="downloadSpeed">0 b/s</code>
+            <span>Down </span>
+            <span> - </span>            
+            <code id="uploadSpeed">0 b/s</code>
+            <span>Up </span>
+            <span> - </span>            
+            <span id="remaining"></span>
+            <span> - </span>
+            <code id="downloaded">0 MB</code> of <code id="total">0 MB</code>
+            <span></span>
+            <!-- <span class="show-leech d-none">Downloading </span>  -->
+            <!-- <code id="streamedFileName"></code> -->
+            <!-- <span class="show-leech"> - </span> -->
+            <!-- <span class="show-seed d-none">Seeding </span>
+            <span class="show-seed d-none"> to </span> -->
+          </div>
+          
+        </div>         
+        
+
+      </div>
+    </header>
+
+   
+
+
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <script src="js/clipboard.min.js"></script>
+  
+    <!-- Include the latest version of WebTorrent -->
+    <script src="https://cdn.jsdelivr.net/webtorrent/latest/webtorrent.min.js"></script>
+  
+    <!-- `browserify main.js -o bundle.js` -->
+    <script src="js/bundle.js"></script>
+  </body>
+</html>

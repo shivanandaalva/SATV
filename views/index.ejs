@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="color-scheme" content="dark light"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="flickity/flickity.css" media="screen">
+ 
+  
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+
+
+
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script> -->
+    <title>SATV</title>
+
+</head>
+<body class="bg-custom text-white"> 
+  <script src="flickity/flickity.pkgd.min.js"></script>
+
+
+
+
+
+
+
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="#">About</a>
+  <a href="#">Donate</a>
+  <a href="#">Privacy Policy</a>
+  <a href="#">Contact</a>
+<br>
+<center><p>Made with <span style="color: #e74c3c">&hearts;</span> in India</p></center>
+
+</div>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-custom">
+      
+        <button class="navbar-toggler" onclick="openNav()" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+       <a class="navbar-brand text-center" href="#"><h1 style="color:#E50914">SATV</h1></a> <a class="navbar-brand" href="#"></a>
+        <!-- <div class="collapse navbar-collapse" id="navbarText">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Features</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Pricing</a>
+            </li>
+          </ul>
+          <span class="navbar-text">
+            Navbar text with an inline element
+          </span>
+        </div> -->
+      </nav>
+
+<script>
+function openNav() {
+  document.getElementById("mySidenav").style.width = "250px";
+}
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+}
+</script>
+
+
+
+
+
+<div class="gallery js-flickity"
+data-flickity-options='{ "wrapAround": true }'>
+<img src="https://occ-0-1567-1123.1.nflxso.net/dnm/api/v5/rendition/412e4119fb212e3ca9f1add558e2e7fed42f8fb4/AAAABRvngexxF8H1-OzRWFSj6ddD-aB93tTBP9kMNz3cIVfuIfLEP1E_0saiNAwOtrM6xSOXvoiSCMsihWSkW0dq808-R7_lBnr6WHbjkKBX6I3sD0uCcS8kSPbRjEDdG8CeeVXEAEV6spQ.webp"  class="gallery-cell"/ >
+<img src="https://occ-0-243-299.1.nflxso.net/dnm/api/v5/rendition/a76057bcfd003711a76fb3985b1f2cf74beee3b8/AAAABVxuRB932hvre-XP0gh6ar5ztoR3Oe3QjKHkyvcDnRak2MKXOrx5H7mFQSvggefMFOppwEs7ZCCpiqrJ_CYGvtvYB9NpU4SWUtNO6uV2u-DTID267AcHjHcGvGBQJ1ufddDkxcGOZyi5MlOQ5QUmBun4652FbYUnib3zMYQDgcna_Pvz8y_HO5fbokxezrRR1JZAAiqFSQ.jpg"  class="gallery-cell"/>
+<img src="https://occ-0-243-299.1.nflxso.net/dnm/api/v5/rendition/a76057bcfd003711a76fb3985b1f2cf74beee3b8/AAAABemXHOga9feFnOux6I2YyACBD94wvM7N3vcTGIfMpQ_BcaXeoeM9XyzdVdamKtxt0SHXZfvsl6czcp3E48tXMLtHBxuQsh1BjHtPGgJDZ81je_FjItINiqzLtir0A30s_e4KR8G3d7AYAPDjZVOY97bNpzNqtkcHcGp7fGnJByVCps1uLfG9U9tK3Ma1A_3JbRt0NiT2_Q.jpg"  class="gallery-cell"/>
+<img src="https://occ-0-243-299.1.nflxso.net/dnm/api/v5/rendition/a76057bcfd003711a76fb3985b1f2cf74beee3b8/AAAABY7NwkWEJIfXsn6t3Li4bGSCQ1nEErPisI5ZZtXlC-_VRBZOUrhWK5X3vt3t6SR_cpgVhCwxgQqFFDJhk62Kk8hawOnYGZMr0LKeLczMFV2zalCFjkcdLksvT4HB2LEi6LFyruyk3Uu0LmNGsHfC2A8Bly60smr_3sDbz4RruXcklPOG1qYq9wUVu3zfaiwNvqmG4b8aFA.jpg"  class="gallery-cell"/>
+<img src="https://occ-0-243-299.1.nflxso.net/dnm/api/v5/rendition/412e4119fb212e3ca9f1add558e2e7fed42f8fb4/AAAABTyWK1MKaw8GcObtz47R2Tj7wkLJ7qQu9tk6TVpcoyxpzD4B-zZ569bQ5vGrREBL-MWFkGilXUwy7tCDaj2XOGkUB4RsbbFAmp9NgSr6lygMpUGNHSlyfrFbUORsRkrxSIoh_ggOvg.jpg"  class="gallery-cell"/>
+<img src="https://occ-0-243-299.1.nflxso.net/dnm/api/v5/rendition/412e4119fb212e3ca9f1add558e2e7fed42f8fb4/AAAABRr4YxdaABuAuH_3FmSQZn7BCvLp-UUPsXE9MiYpvFP3CSUHV2zOew5oVqKqqdaOd3tbFVS0Uf67uIs7_eZydlCghg4nK0nMatRpPImABwTOhnNzCLCxdKrua7pPIcPCZqBYTeAO5g.jpg"  class="gallery-cell"/>
+<img src="https://occ-0-243-299.1.nflxso.net/dnm/api/v5/rendition/a76057bcfd003711a76fb3985b1f2cf74beee3b8/AAAABbXWODpAWqVXcmmjMA7K-2mPkQpvwCLfSdeyhVXzR8A3MSpdSEnnjf4HEJJTYC-TnktU6njTUGAxmzWEYCaJbk4v_ZeL-7QGzmkvYBjg_N-evr2XmcX-Fanoyvu_nimFP4iigPe4O3Vr_WcgplhwkDrJwPUJa84wRLrNAx3TufN5V7cWRP4indqu5HQahvgFEqfL9zjp4g.jpg"  class="gallery-cell"/>
+</div>
+
+<style>
+/* external css: flickity.css */
+
+* {
+-webkit-box-sizing: border-box;
+box-sizing: border-box;
+}
+
+body { font-family: sans-serif; }
+
+.gallery {
+background:black;
+}
+
+.gallery-cell {
+width: 66%;
+height: 300px;
+margin-right: 10px;
+background: #8C8;
+counter-increment: gallery-cell;
+}
+
+/* cell number */
+.gallery-cell:before {
+display: block;
+text-align: center;
+content: counter(gallery-cell);
+line-height: 200px;
+font-size: 80px;
+color: white;
+}
+
+</style>
+
+
+
+
+
+
+
+
+
+<br>
+
+<h1>&nbsp;Live TV</h1>
+<div class="content">
+  <div class="row row-cols-3 row-cols-md-6">
+      <div class="col mb-3" onclick="myFunction(this.id)" id="https://m-c066-j2apps.s.llnwi.net/hls_hd/7022.SABHD.in_360p/index.m3u8" >
+        <div class="card h-80">
+          <img src="logos/Sony_Sab.webp" class="card-img-top h-50" alt="...">
+            <p class="card-title text-center" >Sony SAB</p>
+        </div>
+      </div>
+        <div class="col mb-3" onclick="myFunction(this.id)" id="http://dx3.gcdn.co/hindi-COLORSHD/index.m3u8" >
+        <div class="card h-80">
+          <img src="logos/Colors.png" class="card-img-top h-50" alt="...">
+            <p class="card-title text-center">Colors</p> 
+        </div>
+      </div>
+      <div class="col mb-3" onclick="myFunction(this.id)" id=" https://feeds.intoday.in/aajtak/api/aajtakhd/master.m3u8" >
+        <div class="card h-80">
+          <img src="logos/aajtak.png" class="card-img-top h-50" alt="...">
+
+            <p class="card-title text-center">AajTak</p>
+        </div>
+      </div>
+
+      <div class="col mb-3" onclick="myFunction(this.id)" id="http://dx3.gcdn.co/hindi-STARPLUSHD/tracks-v1a1/mono.m3u8" >
+          <div class="card h-80">
+            <img src="logos/StarPlus.webp" class="card-img-top h-50"  alt="...">
+              <p class="card-title text-center">Star Plus</p>
+          </div>
+        </div>
+        
+        <div class="col mb-3" onclick="myFunction(this.id)" id="https://m-c066-j2apps.s.llnwi.net/hls_hd/7021.SETHD.in_480p/index.m3u8" >
+          <div class="card h-80">
+            <img src="logos/SET.webp" class="card-img-top h-50"  alt="...">
+              <p class="card-title text-center">Star Plus</p>
+          </div>
+        </div>
+     
+        <div class="col mb-3" onclick="myFunction(this.id)" id="http://dx3.gcdn.co/hindi-STARGOLD/index.m3u8" >
+          <div class="card h-80">
+            <img src="logos/Star_Gold.webp" class="card-img-top h-50"  alt="...">
+              <p class="card-title text-center">Star Gold</p>
+          </div>
+        </div>
+        
+        
+        <script>
+
+function myFunction(clicked) {
+          console.log(clicked);
+      //     const getID=(event)=> {
+      //     var id = event.target.id;
+      //     console.log(id + "CLICKED");
+      // };
+      
+          localStorage.setItem('watch', clicked);
+          window.location.href = "watch.html"
+      }
+            
+        </script>
+
+      </div>
+    </div>
+
+
+
+
+
+
+</script>
+</div>
+
+
+<h1>&nbsp;Movies</h1>
+
+
+<div class="content">
+  <div class="row row-cols-3 row-cols-md-6" id="myData">
+
+    <% for(var i=10;i<=15;i++) {  %>
+<div class="col mb-3"  id="<%=data[i].torrents["en"]["720p"].url%>" onclick= "abc(this.id)">
+          <div class="card h-80" >
+               <img src="<%=data[i].images.poster%>"  onerror="standby()" class="card-img-top h-50" id="foo" />
+                <p class="card-title text-center"> <%=data[i].title%> </p> 
+               </div> 
+              </div>
+              <% } %>
+      
+    </div>
+  </div>
+
+
+  <script>
+          function standby(){
+            document.getElementById('foo').src = '/logos/shiv.jpg'
+          }
+          
+function abc(clicked){
+            console.log(clicked);
+            localStorage.setItem('magnet', clicked);
+            window.location.href = "./webtorrentplayer/index.html";
+          }
+
+
+</script>
+
+
+
+<h1>&nbsp;Shows</h1>
+
+
+<div class="content">
+  <div class="row row-cols-3 row-cols-md-6" id="myData">
+
+ 
+      <div class="col mb-3"   id="tt0903747" onclick="fun(this.id)" name="box" >
+        <div class="card h-80" >
+             <img src="http://image.tmdb.org/t/p/w500/ggFHVNu6YYI5L9pCfOacjizRGt.jpg"  onerror="standby()" class="card-img-top h-50" id="foo" />
+              <p class="card-title text-center" id="fetch"> Breaking Bad  </p> 
+             </div> 
+            </div>
+
+            <div class="col mb-3"   id="tt0898266" onclick="fun(this.id)" name="box" >
+              <div class="card h-80" >
+                   <img src="http://image.tmdb.org/t/p/w500/ooBGRQBdbGzBxAVfExiO8r7kloA.jpg"  onerror="standby()" class="card-img-top h-50" id="foo" />
+                    <p class="card-title text-center" id="fetch">  The Big Bang Theory  </p> 
+                   </div> 
+                  </div>
+
+
+                  <div class="col mb-3"   id="tt4052886" onclick="fun(this.id)" name="box" >
+                    <div class="card h-80" >
+                         <img src="http://image.tmdb.org/t/p/w500/1sBx2Ew4WFsa1YY32vlHt079O03.jpg"  onerror="standby()" class="card-img-top h-50" id="foo" />
+                          <p class="card-title text-center" id="fetch">  Lucifer  </p> 
+                         </div> 
+                        </div>
+
+
+                        <div class="col mb-3"   id="tt6226232" onclick="fun(this.id)" name="box" >
+                          <div class="card h-80" >
+                               <img src="http://image.tmdb.org/t/p/w500/vzHsG1Sb6BVK8f6VmEcXFlXHLaF.jpg"  onerror="standby()" class="card-img-top h-50" id="foo" />
+                                <p class="card-title text-center" id="fetch"> Young Sheldon  </p> 
+                               </div> 
+                              </div>
+                              <div class="col mb-3"   id="tt0460649" onclick="fun(this.id)" name="box" >
+                                <div class="card h-80" >
+                                     <img src="http://image.tmdb.org/t/p/w500/b34jPzmB0wZy7EjUZoleXOl2RRI.jpg"  onerror="standby()" class="card-img-top h-50" id="foo" />
+                                      <p class="card-title text-center" id="fetch">  How I Met Your Mother  </p> 
+                                     </div> 
+                                    </div>
+                                    <div class="col mb-3"   id="tt2861424" onclick="fun(this.id)" name="box" >
+                                      <div class="card h-80" >
+                                           <img src="http://image.tmdb.org/t/p/w500/8kOWDBK6XlPUzckuHDo3wwVRFwt.jpg"  onerror="standby()" class="card-img-top h-50" id="foo" />
+                                            <p class="card-title text-center" id="fetch"> Rick and Morty   </p> 
+                                           </div> 
+                                          </div>
+          
+      
+    </div>
+  </div>
+
+
+  <script>
+          function standby(){
+            document.getElementById('foo').src = '/logos/shiv.jpg'
+          }
+          
+          function fun(id){
+            console.log(id);
+                 window.location.href = "/show/"+id;
+            //      var addr = "/show/"+id;
+            // var xhr = new XMLHttpRequest();
+            // xhr.open('POST', addr, true);
+            // xhr.send();
+                     
+                    }
+
+</script>
+
+
+<br>
+<br>
+<br>
+
+
+
+
+
+
+
+
+    <div class="footer">
+<div class="home" onclick="location.href='/';"> 
+    <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-house" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" d="M2 13.5V7h1v6.5a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5V7h1v6.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5zm11-11V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"/>
+        <path fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z"/>
+      </svg>
+    <br>Home
+</div>
+<div class="live" onclick="location.href='/live';"> 
+    <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-tv" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" d="M2.5 13.5A.5.5 0 0 1 3 13h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zM13.991 3H2c-.325 0-.502.078-.602.145a.758.758 0 0 0-.254.302A1.46 1.46 0 0 0 1 4.01V10c0 .325.078.502.145.602.07.105.17.188.302.254a1.464 1.464 0 0 0 .538.143L2.01 11H14c.325 0 .502-.078.602-.145a.758.758 0 0 0 .254-.302 1.464 1.464 0 0 0 .143-.538L15 9.99V4c0-.325-.078-.502-.145-.602a.757.757 0 0 0-.302-.254A1.46 1.46 0 0 0 13.99 3zM14 2H2C0 2 0 4 0 4v6c0 2 2 2 2 2h12c2 0 2-2 2-2V4c0-2-2-2-2-2z"/>
+      </svg>
+    <br>Live TV
+</div>
+<div class="movies" onclick="location.href='/movies';">
+    <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-film" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" d="M0 1a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V1zm4 0h8v6H4V1zm8 8H4v6h8V9zM1 1h2v2H1V1zm2 3H1v2h2V4zM1 7h2v2H1V7zm2 3H1v2h2v-2zm-2 3h2v2H1v-2zM15 1h-2v2h2V1zm-2 3h2v2h-2V4zm2 3h-2v2h2V7zm-2 3h2v2h-2v-2zm2 3h-2v2h2v-2z"/>
+      </svg>    
+    <br>Movies
+</div>
+<div class="tvshows" onclick="location.href='/shows';">
+    <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-collection-play" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" d="M14.5 13.5h-13A.5.5 0 0 1 1 13V6a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5zm-13 1A1.5 1.5 0 0 1 0 13V6a1.5 1.5 0 0 1 1.5-1.5h13A1.5 1.5 0 0 1 16 6v7a1.5 1.5 0 0 1-1.5 1.5h-13zM2 3a.5.5 0 0 0 .5.5h11a.5.5 0 0 0 0-1h-11A.5.5 0 0 0 2 3zm2-2a.5.5 0 0 0 .5.5h7a.5.5 0 0 0 0-1h-7A.5.5 0 0 0 4 1z"/>
+        <path fill-rule="evenodd" d="M6.258 6.563a.5.5 0 0 1 .507.013l4 2.5a.5.5 0 0 1 0 .848l-4 2.5A.5.5 0 0 1 6 12V7a.5.5 0 0 1 .258-.437z"/>
+      </svg>
+    <br>Shows</div>
+    <div class="animes" onclick="location.href='/animes';">
+      <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-archive" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" d="M0 2a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1v7.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 12.5V5a1 1 0 0 1-1-1V2zm2 3v7.5A1.5 1.5 0 0 0 3.5 14h9a1.5 1.5 0 0 0 1.5-1.5V5H2zm13-3H1v2h14V2zM5 7.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z"/>
+      </svg>
+      <br>Animes</div>
+
+    </div>
+</body>
+</html>
