@@ -34,7 +34,7 @@
               <button class="navbar-toggler" onclick="openNav()" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
-             <a class="navbar-brand text-center" href="#">SATV</a> <a class="navbar-brand" href="#"></a>
+             <a class="navbar-brand text-center" href="#"><h1 style="color:#E50914">SATV</h1></a> <a class="navbar-brand" href="#"></a>
               <!-- <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav mr-auto">
                   <li class="nav-item active">
@@ -65,25 +65,7 @@
       
       
       </br>
-            <div class="search"> 
-      
-              <div class="row sm-2">
-                  <div class="col-lg-6 mx-auto">
-                      <form action="">
-                        <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4">
-                          <div class="input-group">
-                            <input type="search" id="myInput"  onkeyup="search()" placeholder="What're you searching for?" aria-describedby="button-addon1" class="form-control border-0 bg-light" style="border-radius: 20px;">
-                            <div class="input-group-append">
-                              <button id="button-addon1" type="submit" class="btn btn-link text-primary"><i class="fa fa-search"></i></button>
-                            </div>
-                          </div>
-                        </div>
-                      </form>
-                  </div>
-                </div>
-          
-          
-          </div>
+         
 
 
 
@@ -99,9 +81,10 @@
             <% if (data.episodes[i].season == season) { %> 
              
     <div class="col mb-3" id=" <%=data.episodes[i].torrents[0].url%> " onclick="fun(this.id)" name="box" >
-                    <div class="card h-100" >
-                   
+                    <div class="card h-80" >
+                      <img src="/img/images.jfif"  onerror="standby()" class="card-img-top h-50" id="foo" />
                           <p class="card-title text-center"> <%=data.episodes[i].title%></p> 
+                          
                          </div> 
                         </div>
                       
