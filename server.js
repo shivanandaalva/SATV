@@ -63,7 +63,19 @@ app.get('/', (req, res) => {
 })
 
 app.get('/live', (req, res) => {
-  res.render('live');
+  fetch('https://iptv-org.github.io/iptv/channels.json')
+  .then(function (response) {
+    return response.json();
+  })
+  .then(function (data) {
+    res.render('live',{data:data});  
+  
+  })
+  .catch(function (err) {
+    console.log(err);
+  });
+
+
 })
 
 app.get('/movies', (req, res) => {
