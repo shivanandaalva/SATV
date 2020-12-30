@@ -65,45 +65,43 @@
       
       
       </br>
-     
-
-
-
+     <center>
+       
+      <div class="card" style="width: 80%;">
+        <div class="card-header" style="color:white;background:black;" >
+          Magnet link:
+        </div>
+        <ul class="list-group list-group-flush">
+            <% for(var i=0;i<Object.keys(data.episodes).length;i++){ %>
+                <% if (data.episodes[i].season == season) { %>
+                    <% if (data.episodes[i].episode == ep) { %>
+                  
+          <li  style="color:black" onclick=fun(this.id) id="<%=data.episodes[i].torrents['0'].url%>" class="list-group-item"> Link 1</li>
+        
+       <%}%>
+       <%}%>
+       <%}%>
+        </ul>
+      </div>
+    </center>
 
 
           
-          <div class="content">
-            <div class="row row-cols-3 row-cols-md-6" id="myData">
-           
-             
-        <% for(var i=0;i<Object.keys(data.episodes).length;i++){ %>
-            <% if (data.episodes[i].season == season) { %>
          
-       
-   
-    <div class="col mb-3" id="<%=data.episodes[i].episode%>" onclick="fun(this.id)" name="box" >
-                    <div class="card h-80" >
-                      <img src="<%=data.images.poster%>"  onerror="standby()" class="card-img-top h-50" id="foo" />
-                          <p class="card-title text-center"> <%=data.episodes[i].title%> </p> 
-                         </div> 
-                        </div>
-                        <% }%>
-                        <% } %>
                 
-              </div>
-            </div>
-        
     
             <script>
          
                     
-          function fun(ep)
+          function fun(magnet)
           {
-            window.location.href="/show/<%=id%>/<%=season%>/"+ep; 
+
           
 
 
-         
+            console.log(magnet);
+                  localStorage.setItem('magnet', magnet);
+                  window.location.href = "/webtorrentplayer/index.html";
        
                     }
     

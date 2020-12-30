@@ -127,7 +127,8 @@ function onTorrent(torrent) {
 
 	console.log('Got torrent metadata!')
 	$("#infoMessage").text("Got torrent metadata!");
-	$("#infoMessage").hide();
+    $("#infoMessage").hide();
+    $("#loading").hide();
 
 	// Find largest file
 	var largestFile = torrent.files[0]

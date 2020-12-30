@@ -80,7 +80,7 @@
 
             <% if (data.episodes[i].season == season) { %> 
              
-    <div class="col mb-3" id=" <%=data.episodes[i].torrents[0].url%> " onclick="fun(this.id)" name="box" >
+    <div class="col mb-3" id="<%=data.episodes[i].episode%> " onclick="fun(this.id)" name="box" >
                     <div class="card h-80" >
                       <img src="/img/images.jfif"  onerror="standby()" class="card-img-top h-50" id="foo" />
                           <p class="card-title text-center"> <%=data.episodes[i].title%></p> 
@@ -98,11 +98,9 @@
             <script>
          
                     
-          function fun(magnet)
+          function fun(ep)
           {
-            console.log(magnet);
-                  localStorage.setItem('magnet', magnet);
-                  window.location.href = "/webtorrentplayer/index.html";
+            window.location.href="/anime/<%=id%>/<%=season%>/"+ep; 
        
                     }
     

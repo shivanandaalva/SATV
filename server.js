@@ -359,6 +359,27 @@ app.get('/previous', (req, res) => {
 
     })
 
+
+    app.get('/show/:id/:season/:ep', (req, res) => {
+ 
+      var id=req.params.id;
+     
+      fetch('https://tv-v2.api-fetch.sh/show/'+id)
+    
+      .then(function (res) {
+        return res.json();
+      
+      })
+      .then(function (data) {
+        res.render('show-links',{data:data,id:req.params.id,season:req.params.season,ep:req.params.ep});
+
+      })
+      .catch(function (err) {
+        console.log(err);
+      });
+
+    })
+
   app.get('/animes', (req, res) => {
     fetch('https://tv-v2.api-fetch.sh/animes/1')
   
@@ -544,6 +565,25 @@ app.get('/previous', (req, res) => {
 
     })
 
+    app.get('/anime/:id/:season/:ep', (req, res) => {
+ 
+      var id=req.params.id;
+     
+      fetch('https://tv-v2.api-fetch.sh/anime/'+id)
+    
+      .then(function (res) {
+        return res.json();
+      
+      })
+      .then(function (data) {
+        res.render('anime-links',{data:data,id:req.params.id,season:req.params.season,ep:req.params.ep});
+
+      })
+      .catch(function (err) {
+        console.log(err);
+      });
+
+    })
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
