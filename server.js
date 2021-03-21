@@ -1,590 +1,305 @@
 const express = require('express')
-const fetch = require('node-fetch');
+const axios = require('axios');
 const app = express()
 var port = process.env.PORT || 3000;
-
 var bodyParser = require('body-parser')
-
+var compression = require('compression')
 app.set('view engine', 'ejs' ); 
-
-// parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
-
-// parse application/json
 app.use(bodyParser.json())
-
-// app.use('/show/:id', express.static(__dirname + '/views'));
-
+app.use(compression())
 app.use(express.static(__dirname + '/views'));
-
-
-
-
-
-
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-  With, Content-Type, Accept");
   
   next();   
 });
-
-
-
 app.get('/', (req, res) => {
-  fetch('https://tv-v2.api-fetch.sh/movies/1')
-  
-  .then(function (response) {
-    return response.json();
-  
-  })
 
-  .then(function (data) {
+  async function getdetails() {
+    try {
+      const response= await    axios.get('https://tv-v2.api-fetch.sh/movies/1')
+        var data =response.data;
+        res.render('index',{data:data});
 
-  
-    res.render('index',{data:data});
-  
-  })
-  .catch(function (err) {
-    console.log(err);
-  });
-
-
-
-
-
-
-
-
-
-
-
-
+    } catch (error) {
+      console.error(error);
+    }
+  }
+  getdetails();
 })
-
 app.get('/live', (req, res) => {
-  fetch('https://iptv-org.github.io/iptv/channels.json')
-  .then(function (response) {
-    return response.json();
-  })
-  .then(function (data) {
-    res.render('live',{data:data});  
-  
-  })
-  .catch(function (err) {
-    console.log(err);
-  });
+  async function getdetails() {
+    try {
+      const response= await   axios.get('https://iptv-org.github.io/iptv/channels.json')
+        var data =response.data;
+        res.render('live',{data:data}); 
 
-
+    } catch (error) {
+      console.error(error);
+    }
+  }
+  getdetails();
 })
-
 app.get('/movies', (req, res) => {
 
- fetch('https://tv-v2.api-fetch.sh/movies/1')
-  
-  .then(function (response) {
-    return response.json();
-  
-  })
-  .then(function (data) {
+  async function getdetails() {
+    try {
+      const response= await   axios.get('https://tv-v2.api-fetch.sh/movies/1')
+        var data =response.data;
+        res.render('movies',{data:data});
 
-    // console.log(data.episodes[0].torrents[0].url);
-appendData(data);
-  
-  })
-  .catch(function (err) {
-    console.log(err);
-  });
-
-
-
-function appendData(data){
- 
-  res.render('movies',{data:data});
-}
-
-
-
-
-
+    } catch (error) {
+      console.error(error);
+    }
+  }
+  getdetails();
 })
-
-
-
 var i=2;
-
 app.get('/next', (req, res) => {
-console.log("clicked");
+async function getdetails() {
+  try {
+    const response = await  axios.get('https://tv-v2.api-fetch.sh/movies/'+i++)
+      var data =response.data;
+      res.render('pages',{data:data});
 
-
-  fetch('https://tv-v2.api-fetch.sh/movies/'+ i++)
-  
-  .then(function (response) {
-    return response.json();
-  
-  })
-  .then(function (data) {
-
-    // console.log(data.episodes[0].torrents[0].url);
-appendData(data);
-  
-  })
-  .catch(function (err) {
-    console.log(err);
-  });
-
-
-
-function appendData(data){
-  res.render('pages',{data:data});
+  } catch (error) {
+    console.error(error);
+  }
 }
-
-
+getdetails();
 })
-
-
-
 app.get('/previous', (req, res) => {
-  console.log("clicked");
-
   if(i==1){
-    fetch('https://tv-v2.api-fetch.sh/movies/1')
-    
-    .then(function (response) {
-      return response.json();
-    
-    })
-    .then(function (data) {
+  async function getdetails() {
+    try {
+      const response= await   axios.get('https://tv-v2.api-fetch.sh/movies/1')
+        var data =response.data;
+        res.render('movies',{data:data});
   
-      // console.log(data.episodes[0].torrents[0].url);
-  appendData(data);
-    
-    })
-    .catch(function (err) {
-      console.log(err);
-    });
-  
-  
-  
-  function appendData(data){
-    res.render('movies',{data:data});
-  } 
+    } catch (error) {
+      console.error(error);
+    }
+  }
+  getdetails();
   }
   else{
-    fetch('https://tv-v2.api-fetch.sh/movies/'+ i--)
-    
-    .then(function (response) {
-      return response.json();
-    
-    })
-    .then(function (data) {
+  async function getdetails() {
+    try {
+      const response= await  axios.get('https://tv-v2.api-fetch.sh/movies/'+ i--)
+        var data =response.data;
+        res.render('pages',{data:data});
   
-      // console.log(data.episodes[0].torrents[0].url);
-  appendData(data);
-    
-    })
-    .catch(function (err) {
-      console.log(err);
-    });
-  
-  
-  
-  function appendData(data){
-    res.render('pages',{data:data});
+    } catch (error) {
+      console.error(error);
+    }
   }
+  getdetails();
   }
-
-  
-  
   })
-
-  
-
-
-
   app.get('/shows', (req, res) => {
-    fetch('https://tv-v2.api-fetch.sh/shows/1')
-  
-    .then(function (response) {
-      return response.json();
-    
-    })
-    .then(function (data) {
-  
-      
-  appendData(data);
-    
-    })
-    .catch(function (err) {
-      console.log(err);
-    });
-  
-  
-  
-  function appendData(data){
-   
-    res.render('shows',{data:data});
-  }
-  })
-
-  var s=2;
-
-  app.get('/show-next', (req, res) => {
-  console.log("clicked");
-  
-  
-    fetch('https://tv-v2.api-fetch.sh/shows/'+ a++)
-    
-    .then(function (response) {
-      return response.json();
-    
-    })
-    .then(function (data) {
-  
- 
-  appendData(data);
-    
-    })
-    .catch(function (err) {
-      console.log(err);
-    });
-  
-  
-  
-  function appendData(data){
-    res.render('show-pages',{data:data});
-  }
-  
-  
-  })
-
-  app.get('/show-previous', (req, res) => {
-    console.log("clicked");
-  
-    if(s==1 ){
-      fetch('https://tv-v2.api-fetch.sh/shows/1')
-      
-      .then(function (response) {
-        return response.json();
-      
-      })
-      .then(function (data) {
-    
-        
-    appendData(data);
-      
-      })
-      .catch(function (err) {
-        console.log(err);
-      });
-    
-    
-    
-    function appendData(data){
+  async function getdetails() {
+  try {
+    const response= await  axios.get('https://tv-v2.api-fetch.sh/shows/1')
+      var data =response.data;
       res.render('shows',{data:data});
-    } 
+
+  } catch (error) {
+    console.error(error);
+  }
+}
+getdetails();
+
+})
+  var s=2;
+  app.get('/show-next', (req, res) => {
+  async function getdetails() {
+    try {
+      const response= await  axios.get('https://tv-v2.api-fetch.sh/shows/'+ a++)
+        var data =response.data;
+        res.render('show-pages',{data:data});
+  
+    } catch (error) {
+      console.error(error);
+    }
+  }
+  getdetails();
+  })
+  app.get('/show-previous', (req, res) => {
+
+    if(s==1 ){
+    async function getdetails() {
+      try {
+        const response= await axios.get('https://tv-v2.api-fetch.sh/shows/1')
+          var data =response.data;
+          res.render('shows',{data:data});
+    
+      } catch (error) {
+        console.error(error);
+      }
+    }
+    getdetails();
     }
     else{
-      fetch('https://tv-v2.api-fetch.sh/shows/'+ s--)
-      
-      .then(function (response) {
-        return response.json();
-      
-      })
-      .then(function (data) {
+    async function getdetails() {
+      try {
+        const response= await  axios.get('https://tv-v2.api-fetch.sh/shows/'+ s--)
+          var data =response.data;
+          res.render('show-pages',{data:data});
     
-     
-    appendData(data);
-      
-      })
-      .catch(function (err) {
-        console.log(err);
-      });
-    
-    
-    
-    function appendData(data){
-      res.render('show-pages',{data:data});
+      } catch (error) {
+        console.error(error);
+      }
     }
+    getdetails();
     }
-  
-    
-    
     })
-
-
     app.get('/show/:id', (req, res) => {
- 
       console.log(req.params.id);
       var id=req.params.id;
-      fetch('https://tv-v2.api-fetch.sh/show/'+id)
     
-      .then(function (res) {
-        return res.json();
+      async function getdetails() {
+        try {
+          const response= await axios.get('https://tv-v2.api-fetch.sh/show/'+id)
+            var data =response.data;
+            res.render('show-season',{data:data,id:req.params.id});
       
-      })
-      .then(function (data) {
-        res.render('show-season',{data:data,id:req.params.id});
-
-      })
-      .catch(function (err) {
-        console.log(err);
-      });
-
-   
-   
+        } catch (error) {
+          console.error(error);
+        }
+      }
+      getdetails();
     })
-
     app.get('/show/:id/:season', (req, res) => {
-      
       console.log(req.params.id);
       var id=req.params.id;
-     
-      fetch('https://tv-v2.api-fetch.sh/show/'+id)
-    
-      .then(function (res) {
-        return res.json();
-      
-      })
-      .then(function (data) {
-        res.render('show-episodes',{data:data,id:req.params.id,season:req.params.season});
-
-      })
-      .catch(function (err) {
-        console.log(err);
-      });
-
-   
-   
-
+      async function getdetails() {
+        try {
+          const response= await  axios.get('https://tv-v2.api-fetch.sh/show/'+id)
+            var data =response.data;
+            res.render('show-episodes',{data:data,id:req.params.id,season:req.params.season});
+        } catch (error) {
+          console.error(error);
+        }
+      }
+      getdetails();
     })
-
-
     app.get('/show/:id/:season/:ep', (req, res) => {
- 
       var id=req.params.id;
-     
-      fetch('https://tv-v2.api-fetch.sh/show/'+id)
-    
-      .then(function (res) {
-        return res.json();
-      
-      })
-      .then(function (data) {
-        res.render('show-links',{data:data,id:req.params.id,season:req.params.season,ep:req.params.ep});
-
-      })
-      .catch(function (err) {
-        console.log(err);
-      });
+      async function getdetails() {
+        try {
+          const response= await  axios.get('https://tv-v2.api-fetch.sh/show/'+id)
+            var data =response.data;
+            res.render('show-links',{data:data,id:req.params.id,season:req.params.season,ep:req.params.ep});
+        } catch (error) {
+          console.error(error);
+        }
+      }
+      getdetails();
 
     })
 
   app.get('/animes', (req, res) => {
-    fetch('https://tv-v2.api-fetch.sh/animes/1')
   
-    .then(function (response) {
-      return response.json();
-    
-    })
-    .then(function (data) {
-  
-  appendData(data);
-    
-    })
-    .catch(function (err) {
-      console.log(err);
-    });
-  
-  
-  
-  function appendData(data){
-   
-    res.render('animes',{data:data});
+  async function getdetails() {
+    try {
+      const response= await  axios.get('https://tv-v2.api-fetch.sh/animes/1')
+        var data =response.data;
+        res.render('animes',{data:data});
+    } catch (error) {
+      console.error(error);
+    }
   }
+  getdetails();
   })
-
-
-
   var a=2;
-
   app.get('/anime-next', (req, res) => {
-  console.log("clicked");
-  
-  
-    fetch('https://tv-v2.api-fetch.sh/animes/'+ a++)
-    
-    .then(function (response) {
-      return response.json();
-    
-    })
-    .then(function (data) {
-  
- 
-  appendData(data);
-    
-    })
-    .catch(function (err) {
-      console.log(err);
-    });
-  
-  
-  
-  function appendData(data){
-    res.render('anime-pages',{data:data});
+
+  async function getdetails() {
+    try {
+      const response= await  axios.get('https://tv-v2.api-fetch.sh/animes/'+ a++)
+        var data =response.data;
+        res.render('anime-pages',{data:data});
+    } catch (error) {
+      console.error(error);
+    }
   }
-  
-  
+  getdetails();
   })
 
   app.get('/anime-previous', (req, res) => {
-    console.log("clicked");
-  
     if(a==1 ){
-      fetch('https://tv-v2.api-fetch.sh/animes/1')
-      
-      .then(function (response) {
-        return response.json();
-      
-      })
-      .then(function (data) {
-    
-        
-    appendData(data);
-      
-      })
-      .catch(function (err) {
-        console.log(err);
-      });
-    
-    
-    
-    function appendData(data){
-      res.render('animes',{data:data});
-    } 
+    async function getdetails() {
+      try {
+        const response= await  axios.get('https://tv-v2.api-fetch.sh/animes/1')
+          var data =response.data;
+          res.render('animes',{data:data});
+      } catch (error) {
+        console.error(error);
+      }
+    }
+    getdetails();
     }
     else{
-      fetch('https://tv-v2.api-fetch.sh/animes/'+ a--)
-      
-      .then(function (response) {
-        return response.json();
-      
-      })
-      .then(function (data) {
-    
-     
-    appendData(data);
-      
-      })
-      .catch(function (err) {
-        console.log(err);
-      });
-    
-    
-    
-    function appendData(data){
-      res.render('anime-pages',{data:data});
+    async function getdetails() {
+      try {
+        const response= await  axios.get('https://tv-v2.api-fetch.sh/animes/'+ a--)
+          var data =response.data;
+          res.render('anime-pages',{data:data});
+      } catch (error) {
+        console.error(error);
+      }
     }
+    getdetails();
     }
-  
-    
-    
     })
-
-
-
 
     app.get('/anime/:id', (req, res) => {
- 
       console.log(req.params.id);
       var id=req.params.id;
-      fetch('https://tv-v2.api-fetch.sh/anime/'+id)
-    
-      .then(function (res) {
-        return res.json();
-      
-      })
-      .then(function (data) {
-        res.render('anime-season',{data:data,id:req.params.id});
 
-      })
-      .catch(function (err) {
-        console.log(err);
-      });
-
-   
-   
+      async function getdetails() {
+        try {
+          const response= await   axios.get('https://tv-v2.api-fetch.sh/anime/'+id)
+            var data =response.data;
+            res.render('anime-season',{data:data,id:req.params.id});
+        } catch (error) {
+          console.error(error);
+        }
+      }
+      getdetails();
     })
 
-
-
-    app.get('/show/:id/:season', (req, res) => {
-      
-      console.log(req.params.id);
-      var id=req.params.id;
-     
-      fetch('https://tv-v2.api-fetch.sh/show/'+id)
-    
-      .then(function (res) {
-        return res.json();
-      
-      })
-      .then(function (data) {
-        res.render('show-episodes',{data:data,id:req.params.id,season:req.params.season});
-
-      })
-      .catch(function (err) {
-        console.log(err);
-      });
-
-   
-   
-
-    })
     app.get('/anime/:id/:season', (req, res) => {
       
       console.log(req.params.id);
       var id=req.params.id;
-     
-      fetch('https://tv-v2.api-fetch.sh/anime/'+id)
-    
-      .then(function (res) {
-        return res.json();
-      
-      })
-      .then(function (data) {
-        res.render('anime-episodes',{data:data,id:req.params.id,season:req.params.season});
 
-      })
-      .catch(function (err) {
-        console.log(err);
-      });
-
-   
-   
-
+      async function getdetails() {
+        try {
+          const response= await  axios.get('https://tv-v2.api-fetch.sh/anime/'+id)
+            var data =response.data;
+            res.render('anime-episodes',{data:data,id:req.params.id,season:req.params.season});
+        } catch (error) {
+          console.error(error);
+        }
+      }
+      getdetails();
     })
-
     app.get('/anime/:id/:season/:ep', (req, res) => {
- 
       var id=req.params.id;
-     
-      fetch('https://tv-v2.api-fetch.sh/anime/'+id)
-    
-      .then(function (res) {
-        return res.json();
-      
-      })
-      .then(function (data) {
-        res.render('anime-links',{data:data,id:req.params.id,season:req.params.season,ep:req.params.ep});
-
-      })
-      .catch(function (err) {
-        console.log(err);
-      });
-
+      async function getdetails() {
+        try {
+          const response= await  axios.get('https://tv-v2.api-fetch.sh/anime/'+id)
+            var data =response.data;
+            res.render('anime-links',{data:data,id:req.params.id,season:req.params.season,ep:req.params.ep});
+        } catch (error) {
+          console.error(error);
+        }
+      }
+      getdetails();
     })
-
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
 })
