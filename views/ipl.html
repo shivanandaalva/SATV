@@ -67,29 +67,58 @@ function closeNav() {
 
 <div class="content">
     <div class="row row-cols-2 row-cols-md-4">
-        <div class="col mb-4" onclick="myFunction(this.id)" id="https://ep95juyqjpyk764.ezcdn462.net:8443/hls/zjnfztb7zkojf.m3u8?s=GP7bTRyTOnlR0lfSTFkE4Q&e=1617886094" >
+        <div class="col mb-2" onclick="myFunction(this.id)" id="https://ep95juyqjpyk764.ezcdn462.net:8443/hls/zjnfztb7zkojf.m3u8?s=N-bo1kRU0qbGKiHBj6k-tw&e=1617916570" >
           <div class="card h-80 bg-light">
+            <img src="logos/starsports1.png" class="card-img-top h-50"  alt="...">
+            <br>
               <p class="card-title text-center" >Server 1</p>
           </div>
         </div>
-          <div class="col mb-2" onclick="myFunction(this.id)" id="https://ep95juyqjpyk764.ezcdn462.net:8443/hls/zjnfztb7zkojf.m3u8?s=R14mjlTaF4DdXoEcDhwyyQ&e=1617886780" >
+          <div class="col mb-2" onclick="myFunction(this.id)" id="https://s07.quest123.top:8088/live/mylivecrickets/playlist.m3u8?id=113076&pk=0a93700be0fa712b5b43de5b5cc64e1344a9e2d4b73119c045f30b70870cc393" >
           <div class="card h-80 bg-light">
-           
+            <img src="logos/starsports1.png" class="card-img-top h-50"  alt="...">
+            <br>
               <p class="card-title text-center">Server 2</p> 
           </div>
         </div>
-        <div class="col mb-2" onclick="myFunction(this.id)" id="https://s07.quest123.top:8088/live/mylivecrickets/playlist.m3u8?id=113076&pk=0a93700be0fa712b5b43de5b5cc64e1344a9e2d4b73119c045f30b70870cc393" >
+        <div class="col mb-2" onclick="star()"  >
           <div class="card h-80 bg-light">
+            <img src="logos/starsports1hindi.jpg" class="card-img-top h-50"  alt="...">
+            <br>
               <p class="card-title text-center">Server 3</p>
           </div>
         </div>
-  
-        <div class="col mb-2 " onclick="myFunction(this.id)" id="https://ep95juyqjpyk764.ezcdn462.net:8443/hls/zjnfztb7zkojf.m3u8?s=gbq3nWabvypgYzKQWAR-Bg&e=1617890814" >
+        <div class="col mb-2 " onclick="myFunction(this.id)" id="https://ep95juyqjpyk764.ezcdn462.net:8443/hls/zjnfztb7zkojf.m3u8?s=CiJuQNTC4IBJcUDCf56bdA&e=1617916756" >
             <div class="card h-80 bg-light ">  
+              <img src="logos/starsports1.png" class="card-img-top h-50"  alt="...">
+              <br>
                 <p class="card-title text-center">Server 4</p>
             </div>
           </div>
+          <div class="col mb-2 " onclick="myFunction(this.id)" id=" https://ep95juyqjpyk764.ezcdn462.net:8443/hls/zjnfztb7zkojf.m3u8?s=H4CEWxIlc4zi-LUdxtjA5w&e=1617916818" >
+            <div class="card h-80 bg-light ">  
+              <img src="logos/starsports1.png" class="card-img-top h-50"  alt="...">
+              <br>
+                <p class="card-title text-center">Server 5</p>
+            </div>
+          </div>
+          <div class="col mb-2 " onclick="sky()"  >
+            <div class="card h-80 bg-light ">  
+              <img src="logos/skysportscricket.png" class="card-img-top h-50"  alt="...">
+              <br>
+                <p class="card-title text-center">Server 6</p>
+            </div>
+          </div>
+          <div class="col mb-2" onclick="myFunction(this.id)" id="https://ep95juyqjpyk764.ezcdn462.net:8443/hls/zjnfztb7zkojf.m3u8?s=CztUvGk7ObTFZwFKyW6ffA&e=1617916687" >
+            <div class="card h-80 bg-light">
+              <img src="logos/starsports1.png" class="card-img-top h-50"  alt="...">
+              <br>
+                <p class="card-title text-center">Server 7</p>
+            </div>
+          </div>
           
+
+         
 
  </div>
 </div>
@@ -100,6 +129,12 @@ function closeNav() {
               localStorage.setItem('watch', clicked);
               window.location.href = "iplwatch.html"
           }
+          function sky(){
+            window.location.href ="skywatch.html"
+          }
+          function star(){
+            window.location.href ="starwatch.html"
+          }
   </script>
           
           <style>
@@ -107,9 +142,14 @@ function closeNav() {
             -webkit-box-sizing: border-box;
             box-sizing: border-box;
             }
-            .card{
-                padding:50px;
+            .content{
+              padding:25px;
             }
+            .card{
+                padding:20px;
+                height:180px;
+            }
+
             </style>
 
 
