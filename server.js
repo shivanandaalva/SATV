@@ -3,23 +3,21 @@ const axios = require('axios');
 const app = express()
 var port = process.env.PORT || 3000;
 var bodyParser = require('body-parser')
-var compression = require('compression')
 app.set('view engine', 'ejs' ); 
-app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
-app.use(compression())
 app.use(express.static(__dirname + '/views'));
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-  With, Content-Type, Accept");
-  
+  res.header("Set-Cookie", "HttpOnly;Secure;SameSite=None");
   next();   
 });
 app.get('/', (req, res) => {
 
   async function getdetails() {
     try {
-      const response= await    axios.get('https://tv-v2.api-fetch.sh/movies/1')
+      const response= await axios.get('https://tv-v2.api-fetch.sh/movies/1')
         var data =response.data;
         res.render('index',{data:data});
 
