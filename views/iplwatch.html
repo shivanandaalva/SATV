@@ -64,17 +64,26 @@ function closeNav() {
 
 
 <div class="stream">
+  <div class="player">
     <video id="my_video_1" class="video-js vjs-fluid vjs-default-skin vjs-big-play-centered" controls autoplay="true" preload="auto"
     data-setup='{}'>
       <source src="" type="application/x-mpegURL" id="player">
     </video>
- 
-  
+  </div>
+    <div class="chat">
+    <iframe class="mx-auto" width="80%" height="500px%" src="http://ipl2021.chatango.com/"></iframe>
+  </div>
 </div>
 
 
 <br>
-
+<br>
+<br>
+<style>
+  .chat{
+    display:flex;
+  }
+</style>
       <script>
         const watch = localStorage.getItem('watch');
 
@@ -84,6 +93,11 @@ function closeNav() {
     </script>
 
 
+
+    <!-- <script>
+    var player = videojs('my_video_1');
+    player.play();
+    </script> -->
 
 
 <br>
