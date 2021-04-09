@@ -72,21 +72,28 @@ function openNav() {
 
 function closeNav() {
   document.getElementById("mySidenav").style.width = "0";
-}
+
+  const xhr = new XMLHttpRequest();
+xhr.open('GET', '');
+xhr.setRequestHeader('X-PINGOTHER', 'pingpong');
+xhr.setRequestHeader('Content-Type', 'application/xml');
+xhr.onreadystatechange = handler;
+xhr.send();}
 </script>
 
 
 <div class="stream">
   <div class="player">
-    <video id="my_video_1" class="video-js vjs-fluid vjs-default-skin vjs-big-play-centered" controls autoplay="true" preload="auto"
+    <video id="my_video_1"  crossOrigin="anonymous" class="video-js vjs-fluid vjs-default-skin vjs-big-play-centered" controls autoplay="true" preload="auto"
     data-setup='{}'>
-      <source src="" type="application/x-mpegURL" id="player">
-    </video>
+      <source src="https://ep95juyqjpyk764.ezcdn462.net:8443/hls/18t8pp8.m3u8?s=FJatgdqVrvMCsQnTVrKf2g&e=1617969957"  crossOrigin="anonymous" type="application/x-mpegURL" id="player">
+    </video> 
   </div>
     <div class="chat">
     <iframe class="mx-auto" width="80%" height="500px%" src="https://ipl2021.chatango.com/"></iframe>
   </div>
 </div>
+
 
 
 <br>
@@ -97,13 +104,7 @@ function closeNav() {
     display:flex;
   }
 </style>
-      <script>
-        const watch = localStorage.getItem('watch');
 
-      
-        var source= document.getElementById('player'); 
-        source.src = watch;
-    </script>
 
 
 

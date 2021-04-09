@@ -68,7 +68,7 @@ function closeNav() {
 
 <div class="content">
     <div class="row row-cols-2 row-cols-md-4">
-        <div class="col mb-2" onclick="myFunction(this.id)" id="https://ep95juyqjpyk764.ezcdn462.net:8443/hls/18t8pp8.m3u8?s=FJatgdqVrvMCsQnTVrKf2g&e=1617969957" >
+        <div class="col mb-2" onclick="myFunction()" >
           <div class="card h-80 bg-light">
             <img src="logos/starsports1.png" class="card-img-top h-50"  alt="...">
             <br>
@@ -112,9 +112,8 @@ function closeNav() {
 </div>
  <script>
 
-    function myFunction(clicked) {
-              console.log(clicked);
-              localStorage.setItem('watch', clicked);
+    function myFunction() {
+     
               window.location.href = "iplwatch.html"
           }
           function sky(){
