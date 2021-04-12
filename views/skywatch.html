@@ -6,6 +6,14 @@
     <!-- <meta name="color-scheme" content="dark light"> -->
     <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
     <link rel="stylesheet" href="style.css">
+    <script>
+      var viewMode = getCookie("view-mode");
+if(viewMode == "desktop"){
+    viewport.setAttribute('content', 'width=1024');
+}else if (viewMode == "mobile"){
+    viewport.setAttribute('content', 'width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no');
+}
+    </script>
 
 
     <script data-ad-client="ca-pub-8397501897549648" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
