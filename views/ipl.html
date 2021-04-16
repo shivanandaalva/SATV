@@ -96,11 +96,11 @@ function closeNav() {
                 <p class="card-title text-center">Server 4</p>
             </div>
           </div>
-          <div class="col mb-2" onclick="window.location.href='http://x1.cric7.biz/'" >
+          <div class="col mb-2" onclick="myfunction(this.id)" id="https://n01.quest123.top:8088/live/webcrici14/playlist.m3u8?vidictid=187334234812&id=114282&pk=be16c9b7f8cca442cf1b7b397912be10e85579cd88435f54f0b8cf179cebd3ce" >
             <div class="card h-80 bg-light">
-              <img src="logos/starsports1.png" class="card-img-top h-50"  alt="...">
+              <img src="logos/astro.png" class="card-img-top h-50"  alt="...">
               <br>
-                <p class="card-title text-center">Server 5(Working)</p> 
+                <p class="card-title text-center">Astro Cricket (Working)</p> 
             </div>
           </div>
      
@@ -108,6 +108,10 @@ function closeNav() {
  </div>
 </div>
  <script>
+   function myfunction(clicked){
+    localStorage.setItem('watch', clicked);
+    window.location.href = "watch.html"
+   }
 
          function sky(){
             window.location.href = 'skywatch.html';
