@@ -17,7 +17,7 @@ app.get('/', (req, res) => {
 
   async function getdetails() {
     try {
-      const response= await axios.get('https://tv-v2.api-fetch.sh/movies/1')
+      const response= await axios.get('https://popcorn-ru.tk/movies/1')
         var data =response.data;
         res.render('index',{data:data});
 
@@ -44,7 +44,7 @@ app.get('/movies', (req, res) => {
 
   async function getdetails() {
     try {
-      const response= await   axios.get('https://tv-v2.api-fetch.sh/movies/1')
+      const response= await   axios.get('https://popcorn-ru.tk/movies/1')
         var data =response.data;
         res.render('movies',{data:data});
 
@@ -58,7 +58,7 @@ var i=2;
 app.get('/next', (req, res) => {
 async function getdetails() {
   try {
-    const response = await  axios.get('https://tv-v2.api-fetch.sh/movies/'+i++)
+    const response = await  axios.get('https://popcorn-ru.tk/movies/'+i++)
       var data =response.data;
       res.render('pages',{data:data});
 
@@ -72,7 +72,7 @@ app.get('/previous', (req, res) => {
   if(i==1){
   async function getdetails() {
     try {
-      const response= await   axios.get('https://tv-v2.api-fetch.sh/movies/1')
+      const response= await   axios.get('https://popcorn-ru.tk/movies/1')
         var data =response.data;
         res.render('movies',{data:data});
   
@@ -85,7 +85,7 @@ app.get('/previous', (req, res) => {
   else{
   async function getdetails() {
     try {
-      const response= await  axios.get('https://tv-v2.api-fetch.sh/movies/'+ i--)
+      const response= await  axios.get('https://popcorn-ru.tk/movies/'+ i--)
         var data =response.data;
         res.render('pages',{data:data});
   
@@ -99,7 +99,7 @@ app.get('/previous', (req, res) => {
   app.get('/shows', (req, res) => {
   async function getdetails() {
   try {
-    const response= await  axios.get('https://tv-v2.api-fetch.sh/shows/1')
+    const response= await  axios.get('https://popcorn-ru.tk/shows/1')
       var data =response.data;
       res.render('shows',{data:data});
 
@@ -114,7 +114,7 @@ getdetails();
   app.get('/show-next', (req, res) => {
   async function getdetails() {
     try {
-      const response= await  axios.get('https://tv-v2.api-fetch.sh/shows/'+ a++)
+      const response= await  axios.get('https://popcorn-ru.tk/shows/'+ a++)
         var data =response.data;
         res.render('show-pages',{data:data});
   
@@ -129,7 +129,7 @@ getdetails();
     if(s==1 ){
     async function getdetails() {
       try {
-        const response= await axios.get('https://tv-v2.api-fetch.sh/shows/1')
+        const response= await axios.get('https://popcorn-ru.tk/shows/1')
           var data =response.data;
           res.render('shows',{data:data});
     
@@ -142,7 +142,7 @@ getdetails();
     else{
     async function getdetails() {
       try {
-        const response= await  axios.get('https://tv-v2.api-fetch.sh/shows/'+ s--)
+        const response= await  axios.get('https://popcorn-ru.tk/shows/'+ s--)
           var data =response.data;
           res.render('show-pages',{data:data});
     
@@ -159,7 +159,7 @@ getdetails();
     
       async function getdetails() {
         try {
-          const response= await axios.get('https://tv-v2.api-fetch.sh/show/'+id)
+          const response= await axios.get('https://popcorn-ru.tk/show/'+id)
             var data =response.data;
             res.render('show-season',{data:data,id:req.params.id});
       
@@ -174,7 +174,7 @@ getdetails();
       var id=req.params.id;
       async function getdetails() {
         try {
-          const response= await  axios.get('https://tv-v2.api-fetch.sh/show/'+id)
+          const response= await  axios.get('https://popcorn-ru.tk/show/'+id)
             var data =response.data;
             res.render('show-episodes',{data:data,id:req.params.id,season:req.params.season});
         } catch (error) {
@@ -187,7 +187,7 @@ getdetails();
       var id=req.params.id;
       async function getdetails() {
         try {
-          const response= await  axios.get('https://tv-v2.api-fetch.sh/show/'+id)
+          const response= await  axios.get('https://popcorn-ru.tk/show/'+id)
             var data =response.data;
             res.render('show-links',{data:data,id:req.params.id,season:req.params.season,ep:req.params.ep});
         } catch (error) {
@@ -202,7 +202,7 @@ getdetails();
   
   async function getdetails() {
     try {
-      const response= await  axios.get('https://tv-v2.api-fetch.sh/animes/1')
+      const response= await  axios.get('https://popcorn-ru.tk/animes/1')
         var data =response.data;
         res.render('animes',{data:data});
     } catch (error) {
@@ -216,7 +216,7 @@ getdetails();
 
   async function getdetails() {
     try {
-      const response= await  axios.get('https://tv-v2.api-fetch.sh/animes/'+ a++)
+      const response= await  axios.get('https://popcorn-ru.tk/animes/'+ a++)
         var data =response.data;
         res.render('anime-pages',{data:data});
     } catch (error) {
@@ -230,7 +230,7 @@ getdetails();
     if(a==1 ){
     async function getdetails() {
       try {
-        const response= await  axios.get('https://tv-v2.api-fetch.sh/animes/1')
+        const response= await  axios.get('https://popcorn-ru.tk/animes/1')
           var data =response.data;
           res.render('animes',{data:data});
       } catch (error) {
@@ -242,7 +242,7 @@ getdetails();
     else{
     async function getdetails() {
       try {
-        const response= await  axios.get('https://tv-v2.api-fetch.sh/animes/'+ a--)
+        const response= await  axios.get('https://popcorn-ru.tk/animes/'+ a--)
           var data =response.data;
           res.render('anime-pages',{data:data});
       } catch (error) {
@@ -259,7 +259,7 @@ getdetails();
 
       async function getdetails() {
         try {
-          const response= await   axios.get('https://tv-v2.api-fetch.sh/anime/'+id)
+          const response= await   axios.get('https://popcorn-ru.tk/anime/'+id)
             var data =response.data;
             res.render('anime-season',{data:data,id:req.params.id});
         } catch (error) {
@@ -276,7 +276,7 @@ getdetails();
 
       async function getdetails() {
         try {
-          const response= await  axios.get('https://tv-v2.api-fetch.sh/anime/'+id)
+          const response= await  axios.get('https://popcorn-ru.tk/anime/'+id)
             var data =response.data;
             res.render('anime-episodes',{data:data,id:req.params.id,season:req.params.season});
         } catch (error) {
@@ -289,7 +289,7 @@ getdetails();
       var id=req.params.id;
       async function getdetails() {
         try {
-          const response= await  axios.get('https://tv-v2.api-fetch.sh/anime/'+id)
+          const response= await  axios.get('https://popcorn-ru.tk/anime/'+id)
             var data =response.data;
             res.render('anime-links',{data:data,id:req.params.id,season:req.params.season,ep:req.params.ep});
         } catch (error) {
