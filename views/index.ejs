@@ -188,8 +188,8 @@ function myFunction(clicked) {
 <div class="content">
   <div class="row row-cols-3 row-cols-md-6" id="myData">
 
-    <% for(var i=10;i<=15;i++) {  %>
-<div class="col mb-3"  id="<%=data[i].torrents["en"]["1080p"].url%>" onclick= "abc(this.id)">
+    <% for(var i=0;i<=5;i++) {  %>
+<div class="col mb-3"  id="<%=data[i].torrents["en"]["720p"].url%>" onclick= "abc(this.id)">
           <div class="card h-80" >
                <img src="<%=data[i].images.poster%>"  onerror="standby()" class="card-img-top h-50" id="foo" />
                 <p class="card-title text-center"> <%=data[i].title%> </p> 
