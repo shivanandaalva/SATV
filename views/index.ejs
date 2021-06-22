@@ -2,12 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <!-- <meta name="color-scheme" content="dark light"> -->
+  
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="flickity/flickity.css" media="screen">
 <script data-ad-client="ca-pub-8397501897549648" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-S5FG9JS4TQ"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -25,20 +24,12 @@
     <link defer  href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
     <title>SATV</title>
-
 </head>
 <body class="bg-custom text-white"> 
   <amp-auto-ads type="adsense"
         data-ad-client="ca-pub-8397501897549648">
 </amp-auto-ads>
   <script src="flickity/flickity.pkgd.min.js"></script>
-
-
-
-
-
-
-
 <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   <a href="#">About</a>
@@ -68,11 +59,6 @@ function closeNav() {
   document.getElementById("mySidenav").style.width = "0";
 }
 </script>
-
-
-
-
-
 <div class="gallery js-flickity"
 data-flickity-options='{ "wrapAround": true }'>
 <img src="https://sportsmintmedia.com/wp-content/uploads/2021/02/IPL-2021-Exclusive-BCCI-close-to-signing-sponsorship-deal-with-Upstox.jpg" onclick="window.location.href='ipl.html'" id="" class="gallery-cell"/ >
@@ -89,20 +75,17 @@ box-sizing: border-box;
 }
 
 body { font-family: sans-serif; }
-
 .gallery {
 background:black;
 }
 
 .gallery-cell {
 width: 50%;
-height: 180px;
+height: 250px;
 margin-right: 10px;
 background: #000000;
 counter-increment: gallery-cell;
 }
-
-/* cell number */
 .gallery-cell:before {
 display: block;
 text-align: center;
@@ -111,28 +94,111 @@ line-height: 20px;
 font-size: 80px;
 color: white;
 }
-
 </style>
 <br>
+<br>
+<h1>&nbsp;Movies</h1>
+<div class="content">
+  <div class="row row-cols-3 row-cols-md-6" id="myData">
 
+    <% for(var i=0;i<=5;i++) {  %>
+<div class="col mb-3"  id="<%=data[i].torrents["en"]["720p"].url%>" onclick= "abc(this.id)">
+          <div class="contentinside h-80" >
+               <img src="<%=data[i].images.poster%>"  onerror="standby()" class="card-img-top h-50" id="foo" />
+                <p class="card-title text-center"> <%=data[i].title%> </p> 
+               </div> 
+              </div>
+              <% } %>  
+    </div>
+  </div>
+  <style>
+    p{
+      white-space: nowrap;
+                      text-overflow: ellipsis;
+                      overflow: hidden;
+                      display: inherit; 
+                      color:white;
+    }
+  </style>
+  <script>
+          function standby(){
+            document.getElementById('foo').src = '/logos/shiv.jpg'
+          }      
+function abc(clicked){
+            console.log(clicked);
+            localStorage.setItem('magnet', clicked);
+            window.location.href = "./webtorrentplayer/index.html";
+          }
+</script>
+<h1>&nbsp;Shows</h1>
+<div class="content">
+  <div class="row row-cols-3 row-cols-md-6" id="myData">
+      <div class="col mb-3"   id="tt0903747" onclick="fun(this.id)" name="box" >
+        <div class="contentinside h-80" >
+             <img src="http://image.tmdb.org/t/p/w500/ggFHVNu6YYI5L9pCfOacjizRGt.jpg"  onerror="standby()" class="card-img-top h-50" id="foo" />
+              <p class="card-title text-center" id="fetch"> Breaking Bad  </p> 
+             </div> 
+            </div>
+
+            <div class="col mb-3"   id="tt0898266" onclick="fun(this.id)" name="box" >
+              <div class="contentinside h-80" >
+                   <img src="http://image.tmdb.org/t/p/w500/ooBGRQBdbGzBxAVfExiO8r7kloA.jpg"  onerror="standby()" class="card-img-top h-50" id="foo" />
+                    <p class="card-title text-center" id="fetch">  The Big Bang Theory  </p> 
+                   </div> 
+                  </div>
+                  <div class="col mb-3"   id="tt4052886" onclick="fun(this.id)" name="box" >
+                    <div class="contentinside h-80" >
+                         <img src="http://image.tmdb.org/t/p/w500/1sBx2Ew4WFsa1YY32vlHt079O03.jpg"  onerror="standby()" class="card-img-top h-50" id="foo" />
+                          <p class="card-title text-center" id="fetch">  Lucifer  </p> 
+                         </div> 
+                        </div>
+                        <div class="col mb-3"   id="tt6226232" onclick="fun(this.id)" name="box" >
+                          <div class="contentinside h-80" >
+                               <img src="http://image.tmdb.org/t/p/w500/vzHsG1Sb6BVK8f6VmEcXFlXHLaF.jpg"  onerror="standby()" class="card-img-top h-50" id="foo" />
+                                <p class="card-title text-center" id="fetch"> Young Sheldon  </p> 
+                               </div> 
+                              </div>
+                              <div class="col mb-3"   id="tt0460649" onclick="fun(this.id)" name="box" >
+                                <div class="contentinside h-80" >
+                                     <img src="http://image.tmdb.org/t/p/w500/b34jPzmB0wZy7EjUZoleXOl2RRI.jpg"  onerror="standby()" class="card-img-top h-50" id="foo" />
+                                      <p class="card-title text-center" id="fetch">  How I Met Your Mother  </p> 
+                                     </div> 
+                                    </div>
+                                    <div class="col mb-3"   id="tt2861424" onclick="fun(this.id)" name="box" >
+                                      <div class="contentinside h-80" >
+                                           <img src="http://image.tmdb.org/t/p/w500/8kOWDBK6XlPUzckuHDo3wwVRFwt.jpg"  onerror="standby()" class="card-img-top h-50" id="foo" />
+                                            <p class="card-title text-center" id="fetch"> Rick and Morty   </p> 
+                                           </div> 
+                                          </div>
+    </div>
+  </div>
+  <script>
+          function standby(){
+            document.getElementById('foo').src = '/logos/shiv.jpg'
+          }   
+          function fun(id){
+            console.log(id);
+                 window.location.href = "/show/"+id;
+                    }
+</script>
 <br>
 <h1>&nbsp;Live TV</h1>
 <div class="content">
   <div class="row row-cols-3 row-cols-md-6">
       <div class="col mb-3" onclick="myFunction(this.id)" id="https://y5w8j4a9.ssl.hwcdn.net/andprivehd/tracks-v1a1/index.m3u8" >
-        <div class="card h-80">
+        <div class="contentinside h-80">
           <img src="logos/prive_HD.png" class="card-img-top h-50" alt="...">
             <p class="card-title text-center" >&prive</p>
         </div>
       </div>
         <div class="col mb-3" onclick="myFunction(this.id)" id="https://1111296894.rsc.cdn77.org/LS-ATL-54548-11/index.m3u8" >
-        <div class="card h-80">
+        <div class="contentinside h-80">
           <img src="https://logos-download.com/wp-content/uploads/2016/06/BBC_logo.png" class="card-img-top h-50" alt="...">
             <p class="card-title text-center">BBC</p> 
         </div>
       </div>
       <div class="col mb-3" onclick="myFunction(this.id)" id=" https://feeds.intoday.in/aajtak/api/aajtakhd/master.m3u8" >
-        <div class="card h-80">
+        <div class="contentinside h-80">
           <img src="logos/aajtak.png" class="card-img-top h-50" alt="...">
 
             <p class="card-title text-center">AajTak</p>
@@ -140,167 +206,38 @@ color: white;
       </div>
 
       <div class="col mb-3" onclick="myFunction(this.id)" id="https://ep95juyqjpyk764.ezcdn462.net:8443/hls/zjnfztb7zkojf.m3u8?s=N-bo1kRU0qbGKiHBj6k-tw&e=1617916570" >
-          <div class="card h-80">
+          <div class="contentinside h-80">
             <img src="logos/starsports1.png" class="card-img-top h-50"  alt="...">
               <p class="card-title text-center">Star Sports 1</p>
           </div>
         </div>
         
         <div class="col mb-3" onclick="myFunction(this.id)" id="http://77.83.117.60:8888/02_EUROHD1_720p/chunklist.m3u8" >
-          <div class="card h-80">
+          <div class="contentinside h-80">
             <img src="https://2.bp.blogspot.com/-EDR0oJ1_1rg/TWKTQqhNT8I/AAAAAAAAAQ4/r4LBAczcA4M/s1600/Eurosport+logo+2011.png" class="card-img-top h-50"  alt="...">
               <p class="card-title text-center">EuroSport</p>
           </div>
         </div>
      
         <div class="col mb-3" onclick="myFunction(this.id)" id="https://dwstream4-lh.akamaihd.net/i/dwstream4_live@131329/master.m3u8" >
-          <div class="card h-80">
+          <div class="contentinside h-80">
             <img src="https://logos-download.com/wp-content/uploads/2016/05/Deutsche_Welle_logo.png" class="card-img-top h-50"  alt="...">
               <p class="card-title text-center">DW</p>
           </div>
         </div>
-        
-        
         <script>
-
-function myFunction(clicked) {
+    function myFunction(clicked) {
           console.log(clicked);
           localStorage.setItem('watch', clicked);
           window.location.href = "watch.html"
-      }
-            
+      }   
         </script>
 
       </div>
     </div>
-
-
-
-
-
-
-
-
-
-<h1>&nbsp;Movies</h1>
-
-
-<div class="content">
-  <div class="row row-cols-3 row-cols-md-6" id="myData">
-
-    <% for(var i=1;i<=6;i++) {  %>
-<div class="col mb-3"  id="<%=data[i].torrents["en"]["720p"].url%>" onclick= "abc(this.id)">
-          <div class="card h-80" >
-               <img src="<%=data[i].images.poster%>"  onerror="standby()" class="card-img-top h-50" id="foo" />
-                <p class="card-title text-center"> <%=data[i].title%> </p> 
-               </div> 
-              </div>
-              <% } %>
-              
-              
-    </div>
-  </div>
- 
-
-  <script>
-          function standby(){
-            document.getElementById('foo').src = '/logos/shiv.jpg'
-          }
-          
-function abc(clicked){
-            console.log(clicked);
-            localStorage.setItem('magnet', clicked);
-            window.location.href = "./webtorrentplayer/index.html";
-          }
-
-
-</script>
-
-
-
-<h1>&nbsp;Shows</h1>
-
-
-<div class="content">
-  <div class="row row-cols-3 row-cols-md-6" id="myData">
-
- 
-      <div class="col mb-3"   id="tt0903747" onclick="fun(this.id)" name="box" >
-        <div class="card h-80" >
-             <img src="http://image.tmdb.org/t/p/w500/ggFHVNu6YYI5L9pCfOacjizRGt.jpg"  onerror="standby()" class="card-img-top h-50" id="foo" />
-              <p class="card-title text-center" id="fetch"> Breaking Bad  </p> 
-             </div> 
-            </div>
-
-            <div class="col mb-3"   id="tt0898266" onclick="fun(this.id)" name="box" >
-              <div class="card h-80" >
-                   <img src="http://image.tmdb.org/t/p/w500/ooBGRQBdbGzBxAVfExiO8r7kloA.jpg"  onerror="standby()" class="card-img-top h-50" id="foo" />
-                    <p class="card-title text-center" id="fetch">  The Big Bang Theory  </p> 
-                   </div> 
-                  </div>
-
-
-                  <div class="col mb-3"   id="tt4052886" onclick="fun(this.id)" name="box" >
-                    <div class="card h-80" >
-                         <img src="http://image.tmdb.org/t/p/w500/1sBx2Ew4WFsa1YY32vlHt079O03.jpg"  onerror="standby()" class="card-img-top h-50" id="foo" />
-                          <p class="card-title text-center" id="fetch">  Lucifer  </p> 
-                         </div> 
-                        </div>
-
-
-                        <div class="col mb-3"   id="tt6226232" onclick="fun(this.id)" name="box" >
-                          <div class="card h-80" >
-                               <img src="http://image.tmdb.org/t/p/w500/vzHsG1Sb6BVK8f6VmEcXFlXHLaF.jpg"  onerror="standby()" class="card-img-top h-50" id="foo" />
-                                <p class="card-title text-center" id="fetch"> Young Sheldon  </p> 
-                               </div> 
-                              </div>
-                              <div class="col mb-3"   id="tt0460649" onclick="fun(this.id)" name="box" >
-                                <div class="card h-80" >
-                                     <img src="http://image.tmdb.org/t/p/w500/b34jPzmB0wZy7EjUZoleXOl2RRI.jpg"  onerror="standby()" class="card-img-top h-50" id="foo" />
-                                      <p class="card-title text-center" id="fetch">  How I Met Your Mother  </p> 
-                                     </div> 
-                                    </div>
-                                    <div class="col mb-3"   id="tt2861424" onclick="fun(this.id)" name="box" >
-                                      <div class="card h-80" >
-                                           <img src="http://image.tmdb.org/t/p/w500/8kOWDBK6XlPUzckuHDo3wwVRFwt.jpg"  onerror="standby()" class="card-img-top h-50" id="foo" />
-                                            <p class="card-title text-center" id="fetch"> Rick and Morty   </p> 
-                                           </div> 
-                                          </div>
-          
-      
-    </div>
-  </div>
-
-
-  <script>
-          function standby(){
-            document.getElementById('foo').src = '/logos/shiv.jpg'
-          }
-          
-          function fun(id){
-            console.log(id);
-                 window.location.href = "/show/"+id;
-            //      var addr = "/show/"+id;
-            // var xhr = new XMLHttpRequest();
-            // xhr.open('POST', addr, true);
-            // xhr.send();
-                     
-                    }
-
-</script>
-
-
 <br>
 <br>
 <br>
-
-
-
-
-
-
-
-
     <div class="footer">
 <div class="home" onclick="location.href='/';"> 
     <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-house" fill="currentColor" xmlns="http://www.w3.org/2000/svg">

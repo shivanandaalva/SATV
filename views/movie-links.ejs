@@ -1,37 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SATV</title>
-    <link rel="stylesheet" href="./style.css"  type="text/css">
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-S5FG9JS4TQ"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-S5FG9JS4TQ');
-</script>
-<script async custom-element="amp-auto-ads"
-        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
-</script>
-<script data-ad-client="ca-pub-8397501897549648" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <link rel="stylesheet" href="/views/style.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <script defer src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-
-
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body class="bg-custom text-white"> 
-
-  <amp-auto-ads type="adsense"
-  data-ad-client="ca-pub-8397501897549648">
-</amp-auto-ads>
-
     <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <a href="#">About</a>
@@ -40,190 +18,74 @@
         <a href="#">Contact</a>
       <br>
       <center><p>Made with <span style="color: #e74c3c">&hearts;</span> in India</p></center>
-      
-      </div>
-      
+      </div> 
  <nav class="navbar navbar-expand-lg navbar-dark bg-custom">
       <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
 <ul class="navbar-nav mx-auto"> 
             <li class="nav-item"> 
                 <a class="nav-link" href="#"> 
-                        <img src="sa.png" width="100" height="55" alt="">
+                        <img src="/sa.png" width="100" height="55" alt="">
                 </a> 
             </li> 
         </ul> 
       </nav>
-
-      
       <script>
       function openNav() {
         document.getElementById("mySidenav").style.width = "250px";
-      }
-      
+      }   
       function closeNav() {
         document.getElementById("mySidenav").style.width = "0";
       }
       </script>
-      
-      
-
-            <div class="search"> 
-      
-              <div class="row sm-2">
-                  <div class="col-lg-6 mx-auto">
-                      <form action="">
-                        <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4">
-                          <div class="input-group">
-                            <input type="search" id="myInput" onkeyup="search()" placeholder="What're you searching for?" aria-describedby="button-addon1" class="form-control border-0 bg-light" style="border-radius: 20px;">
-                            <div class="input-group-append">
-                              <button style="border-radius: 20px;" class="btn btn-warning" onclick="search()">Search</button>
-                            </div>
-                          </div>
-                        </div>
-                      </form>
-                  </div>
-                </div>
-          
-          
+      </br>
+      <center>
+      <div class="a" style="width: 50%;">
+        <div class="row no-gutters">
+          <div class="col-md-4">
+            <img src="<%=data.images.poster%>" alt="..." class="mx-auto d-block img-fluid" >
           </div>
-
-
-
-
-
-    
-          <div class="content" id="content">
-            <div class="row row-cols-3 row-cols-md-6" id="myData">
-    
-              <% data.forEach(function(data) {  %>
-    <div class="col mb-3"   id="<%=data._id%>" onclick="fun(this.id)" name="box" >
-      <div class="contentinside h-80" >
-                         <img src="<%=data.images.poster%>"  onerror="standby()" class="card-img-top h-50" id="foo" />
-                          <p class="card-title text-center" id="fetch"> <%=data.title%> </p> 
-                         </div> 
-                        </div>
-                        <% }); %>
-                
-              </div>
+          <div class="col-md-8">
+            <div class="card-body" >
+              <h5 class="card-title" style="text-align: left;"><%=data.title%></h5>
+              <p class="card-text" style="text-align: left;"><%=data.synopsis%></p>
+              <p class="card-text" style="text-align: left;"><small class="text-muted"><%=data.year%></small></p>
             </div>
-        
-            <style>
-              p{
-                white-space: nowrap;
-                                text-overflow: ellipsis;
-                                overflow: hidden;
-                                display: inherit; 
-                                color:white;
-              }
-            </style>
-    
-            <script>
-         
-function search(){
-
-
-var input, li, i;
-input = document.getElementById("myInput").value;
-
-const input1 = input.charAt(0).toUpperCase() + input.slice(1);
-li = document.getElementById("fetch").innerText;
-content=document.getElementById("content");
-console.log(input);
-console.log(li);
-'<% data.forEach(function(data) { %>'
-if(input1== '<%=data.title%>' ){
-console.log("found");
-
-$("#content").html("");
-
-var text=` <div class="row row-cols-3 row-cols-md-6" id="myData">
-
-
-  <div class="col mb-3"   id="<%=data._id%>" onclick="fun(this.id)" name="box" >
-                    <div class="card h-80" >
-                         <img src="<%=data.images.poster%>"  onerror="standby()" class="card-img-top h-50" id="foo" />
-                          <p class="card-title text-center"> <%=data.title%> </p> 
-                         </div> 
-                        </div>
           </div>
-            `;
-            $("#content").html(text);
-    
-}
-
-
-else{
-console.log("not found");
-
-}
-'<%});%>' 
-
-
-}
-
-                    
-          function fun(id){
-            console.log(id);
-                 window.location.href = "/show/"+id;
-            //      var addr = "/show/"+id;
-            // var xhr = new XMLHttpRequest();
-            // xhr.open('POST', addr, true);
-            // xhr.send();
-                     
-                    }
-    
-              
-             </script>
-             
-           <center>
-            <button type="button" class="btn btn-primary" onclick="myfunction()">Next</button>
-          </center>
-      <script>
-          function myfunction() {
-           
-              window.location.href = "/show-next";
-          }
-      </script>
-    
-    
        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-          
-
-
+        </div>
+      </div>
+  <br>
+      <div class="card" style="width: 80%;">
+        <div class="card-header" style="color:white;background:black;" >
+          Magnet link:
+        </div>
+        <ul class="list-group list-group-flush">
+            <% for(var key in data.torrents.en){ %>
+            <li  style="color:black" onclick=fun(this.id)  id="<%=data.torrents.en[key].url%>" class="list-group-item"> Link <%=data.torrents.en[key].url%></li>
+          <%  }  %>
+        </ul>
+      </div>
+    </center>
+    <br>  <br>
+          <style>
+              li {
+                   cursor: pointer;
+                   white-space: nowrap;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                    display: inherit;
+                 }
+          </style>
+            <script>
+             function fun(magnet) {
+            console.log(magnet);
+                  localStorage.setItem('magnet', magnet);
+                  window.location.href = "/webtorrentplayer/index.html";
+                    }
+             </script>
 <br>
 <br>
 <br>
-
-
-
-
-
-
-
-
     <div class="footer">
 <div class="home" onclick="location.href='/';"> 
     <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-house" fill="currentColor" xmlns="http://www.w3.org/2000/svg">

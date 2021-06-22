@@ -62,10 +62,17 @@
         <ul class="list-group list-group-flush">
             <% for(var i=0;i<Object.keys(data.episodes).length;i++){ %>
                 <% if (data.episodes[i].season == season) { %>
-                    <% if (data.episodes[i].episode == ep) { %>
+                    <% if (data.episodes[i].episode == ep) {  %>
+                      <%
+                      for(var key in data.episodes[i].torrents){
+                        console.log(data.episodes[i].torrents[key].url);
+                        %>
                   
-          <li  style="color:black" onclick=fun(this.id) id="<%=data.episodes[i].torrents['0'].url%>" class="list-group-item"> Link 1</li>
-        
+          <li  style="color:black" onclick=fun(this.id) id="<%=data.episodes[i].torrents[key].url%>" class="list-group-item"> Link: <%=data.episodes[i].torrents[key].url%></li>
+          <% 
+         
+        } 
+            %>
        <%}%>
        <%}%>
        <%}%>
@@ -76,7 +83,16 @@
 
           
          
-                
+    <style>
+      li {
+         cursor: pointer; 
+        white-space: nowrap;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                    display: inherit;
+                    }
+  </style>
+ 
     
             <script>
          

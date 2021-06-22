@@ -33,7 +33,7 @@
 <ul class="navbar-nav mx-auto"> 
             <li class="nav-item"> 
                 <a class="nav-link" href="#"> 
-                        <img src="./img/sa.png" width="100" height="55" alt="">
+                        <img src="./sa.png" width="100" height="55" alt="">
                 </a> 
             </li> 
         </ul> 
@@ -72,15 +72,18 @@
           
           </div>
 
-
+          <script>
+       
+      
+          </script>
 
     
        
           <div class="content" id="content">
             <div class="row row-cols-3 row-cols-md-6" id="myData">
-              <% data.forEach(function(data) {  %>
-    <div class="col mb-3"  id="<%=data.torrents["en"]["1080p"].url%>" onclick= "fun(this.id)">
-                    <div class="card h-80" >
+              <% data.forEach(function(data) {   %>
+    <div class="col mb-3"  id="<%=data._id%>" onclick= "fun(this.id)">
+                    <div class="contentinside h-80" >
                          <img src="<%=data.images.poster%>"  onerror="standby()" class="card-img-top h-50" id="foo" />
                           <p class="card-title text-center" id="fetch"> <%=data.title%> </p> 
                          </div> 
@@ -89,34 +92,31 @@
                 
               </div>
             </div>
-        
+            <style>
+              p{
+                white-space: nowrap;
+                                text-overflow: ellipsis;
+                                overflow: hidden;
+                                display: inherit; 
+                                color:white;
+              }
+            </style>
     
             <script>
                     function standby(){
                       document.getElementById('foo').src = '/logos/shiv.jpg'
                     }
                     
-          function fun(clicked){
-                      console.log(clicked);
-                      localStorage.setItem('magnet', clicked);
-                      window.location.href = "./webtorrentplayer/index.html";
+          function fun(id){
+                      window.location.href = "/movie/"+id;
                     }
-    
-              
              </script>
-
-
-
-
         <center>
         <button type="button" class="btn btn-success" onclick="myfunction2()">Previous</button>
         <button type="button" class="btn btn-primary" onclick="myfunction()">Next</button>
       </center>
-
   <script>
 function search(){
-
-
 var input, li, i;
 input = document.getElementById("myInput").value;
 
@@ -131,7 +131,7 @@ console.log("found");
 
 $("#content").html("");
 var text=` <div class="row row-cols-3 row-cols-md-6" id="myData">
-<div class="col mb-3"  id="<%=data.torrents["en"]["1080p"].url%>" onclick= "fun(this.id)">
+<div class="col mb-3"  id="" onclick= "fun(this.id)">
       <div class="card h-80" id="content" >
            <img src="<%=data.images.poster%>"  onerror="standby()" class="card-img-top h-50" id="foo" />
             <p class="card-title text-center" id="fetch"> <%=data.title%> </p> 

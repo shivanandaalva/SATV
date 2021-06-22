@@ -41,11 +41,12 @@ app.get('/live', (req, res) => {
   getdetails();
 })
 app.get('/movies', (req, res) => {
-
+  
   async function getdetails() {
     try {
       const response= await   axios.get('https://popcorn-ru.tk/movies/1')
         var data =response.data;
+    
         res.render('movies',{data:data});
 
     } catch (error) {
@@ -96,6 +97,38 @@ app.get('/previous', (req, res) => {
   getdetails();
   }
   })
+  app.get('/movie/:id', (req, res) => {
+    console.log(req.params.id);
+    var id=req.params.id;
+
+    async function getdetails() {
+      try {
+        const response= await   axios.get('https://popcorn-ru.tk/movie/'+id)
+          var data =response.data;
+          res.render('movie-links',{data:data,id:req.params.id});
+      } catch (error) {
+        console.error(error);
+      }
+    }
+    getdetails();
+  })
+
+  app.get('/movie/search/:input', (req, res) => {
+    async function getdetails() {
+      try {
+        var input = req.params.input;
+        const response = await axios.get('https://www.omdbapi.com/?t='+input+'&apikey=bfbe2f73')
+          var data = response.data;
+          console.log(data);
+          res.render('movie-search',{data:data});
+      } catch (error) {
+        console.error(error);
+      }
+    }
+    getdetails();
+  })
+
+  
   app.get('/shows', (req, res) => {
   async function getdetails() {
   try {
@@ -200,16 +233,16 @@ getdetails();
 
   app.get('/animes', (req, res) => {
   
-  async function getdetails() {
-    try {
-      const response= await  axios.get('https://popcorn-ru.tk/animes/1')
-        var data =response.data;
-        res.render('animes',{data:data});
-    } catch (error) {
-      console.error(error);
-    }
-  }
-  getdetails();
+  // async function getdetails() {
+  //   try {
+  //     const response= await  axios.get('https://popcorn-ru.tk/animes/1')
+  //       var data =response.data;
+        res.render('animes');
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // }
+  // getdetails();
   })
   var a=2;
   app.get('/anime-next', (req, res) => {

@@ -24,10 +24,8 @@
     <script defer src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-
-
-
-</head>
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
+  </head>
 
 <body class="bg-custom text-white"> 
   <amp-auto-ads type="adsense"
@@ -69,23 +67,18 @@
   
 
         <div class="search"> 
-  
-          <div class="row sm-2">
+          <div class="row sm-4">
               <div class="col-lg-6 mx-auto">
-                  <form action="">
                     <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4">
                       <div class="input-group">
-                        <input type="search"  id="myInput" onkeyup="search()"  placeholder="What're you searching for?" aria-describedby="button-addon1" class="form-control border-0 bg-light" style="border-radius: 20px;">
+                        <input type="search"  id="myInput"   placeholder="What're you searching for?" aria-describedby="button-addon1" class="form-control border-0 bg-light" style="border-radius: 20px;">
                         <div class="input-group-append">
-                         
+                          <button style="border-radius: 20px;" class="btn btn-warning" id="search" onclick="search()">Search</button>
                         </div>
                       </div>
                     </div>
-                  </form>
               </div>
             </div>
-      
-      
       </div>
 
 
@@ -95,8 +88,8 @@
         <div class="row row-cols-3 row-cols-md-6" id="myData">
 
           <% data.forEach(function(data) {  %>
-<div class="col mb-3"  id="" onclick= "fun(this.id)">
-                <div class="card h-80" >
+<div class="col mb-3"  id="<%=data._id%>" onclick= "fun(this.id)">
+                <div class="contentinside h-80" >
                      <img src="<%=data.images.poster%>"  onerror="standby()" class="card-img-top h-50" id="foo" />
                       <p class="card-title text-center" id="fetch"> <%=data.title%> </p> 
                      </div> 
@@ -106,7 +99,15 @@
           </div>
         </div>
     
-
+<style>
+  p{
+    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                    display: inherit; 
+                    color:white;
+  }
+</style>
        
 
 <script>
@@ -115,42 +116,68 @@
 function search(){
 
 
-var input, li, i;
+// const response =  axios({
+//             mode: 'no-cors',
+//             method: 'GET',
+//             url: 'https://popcorn-ru.tk/movie/1',
+//             headers: {
+//               'Content-Type': 'application/json',
+//               'Access-Control-Allow-Origin':'*'
+//             }
+//           })
+//           var data = response.data;
+//           console.log(data);
+
+
+// await fetch('https://popcorn-ru.tk/movies/1', {
+//             mode: 'no-cors', 
+//             method: 'GET'
+//           })
+//         .then(function(response) { return response.json(); })
+//         .then(data => console.log(data));
+ 
+
+// const response = await fetch('https://popcorn-ru.tk/movies/1', {
+//             mode: 'no-cors',
+//             method: 'GET',
+//             credentials: 'same-origin',
+//             headers: {
+//               'Content-Type': 'application/json',
+//               'Access-Control-Allow-Origin':'*',
+//               'Access-Control-Allow-Credentials' : true 
+//              }
+//           })
+//           var data = response.json();
+//           console.log( data);
+ 
+
+// let url = "https://popcorn-ru.tk/movies/1";
+//   $.getJSON(url, function(data) {
+//     console.log(data);
+//   });
+
+
+
+
+// $.ajax({
+//     type: "GET",
+//     url: 'hhttps://popcorn-ru.tk/movies/1',
+//     dataType: 'text',
+//     contentType: "application/json; charset=utf-8",
+//     success: function (data) {
+//         console.log(data);        
+//     }
+// });
+
+
+var input;
 input = document.getElementById("myInput").value;
-
 const input1 = input.charAt(0).toUpperCase() + input.slice(1);
+var i=1;
 
-li = document.getElementById("fetch").innerText;
-content=document.getElementById("content");
-console.log(input);
-console.log(li);
-'<% data.forEach(function(data) { %>'
-if(input1 == '<%=data.title%>' ){
-console.log("found");
-
-$("#content").html("");
-
-var text=` <div class="row row-cols-3 row-cols-md-6" id="myData">
+window.location.href = "/movie/search/"+input1;
 
 
-<div class="col mb-3"  id="" onclick= "fun(this.id)">
-      <div class="card h-80" id="content" >
-           <img src="<%=data.images.poster%>"  onerror="standby()" class="card-img-top h-50" id="foo" />
-            <p class="card-title text-center" id="fetch"> <%=data.title%> </p> 
-           </div> 
-          </div>
-          </div>
-            `;
-   $("#content").html(text);
-    
-}
-
-
-else{
-console.log("not found");
-
-}
-'<%});%>' 
 
 
 }
@@ -161,10 +188,8 @@ console.log("not found");
                   document.getElementById('foo').src = '/logos/shiv.jpg'
                 }
                 
-      function fun(clicked){
-                  console.log(clicked);
-                  localStorage.setItem('magnet', clicked);
-                  window.location.href = "./webtorrentplayer/index.html";
+      function fun(id){
+        window.location.href = "/movie/"+id;
                 }
 
 
