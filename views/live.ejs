@@ -18,17 +18,12 @@
 <script async custom-element="amp-auto-ads"
         src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
 </script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-    <script defer src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 
-      function abc(url) {   
-              localStorage.setItem('watch', url);
-              window.location.href = "watch.html"
-              }
-       </script>
 </head>
 <body class="bg-custom text-white">
   <amp-auto-ads type="adsense"
@@ -65,7 +60,7 @@ function closeNav() {
 }
 </script>
 
-<div class="search"> 
+<!-- <div class="search"> 
   <div class="row sm-4">
       <div class="col-lg-6 mx-auto">
             <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4">
@@ -80,8 +75,45 @@ function closeNav() {
     </div>
 </div>
 
+<div class="card-columns">
+  <div id="main" class="main">
 
+</div>
+  </div>
 
+<script>
+function search(){
+
+  
+  var input=document.getElementById("myInput").value;
+  
+
+$.getJSON('https://iptv-org.github.io/iptv/channels.json', function(data) {
+  data.forEach(function(data) {
+   
+    console.log(data.name);
+  if(input==data.name){
+var text=`<div class="container">
+<div class="row ">
+<div class="col  onclick="abc(this.id)" id='${data.url}' mb-4">
+  <div class="card border-left-success shadow h-100 py-2">
+    <img src="img/tv.jfif" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">${data.name}</h5> 
+      </div>
+      </div>
+      </div>
+      </div>
+      </div>
+      `;
+  $(".main").html(text);    
+    }  
+        
+  })
+});
+ 
+} -->
+<!-- </script> -->
       <div class="content" id="content">
         <div class="row row-cols-3 row-cols-md-6" id="myData">
           <% data.forEach(function(data) { %>
@@ -107,6 +139,13 @@ function closeNav() {
 <br>
 <br>
 <br>
+<script>
+
+  function abc(url) {   
+          localStorage.setItem('watch', url);
+          window.location.href = "watch.html"
+          }
+   </script>
 <div class="footer">
     <div class="home" onclick="location.href='/';"> 
         <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-house" fill="currentColor" xmlns="http://www.w3.org/2000/svg">

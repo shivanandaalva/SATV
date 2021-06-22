@@ -48,7 +48,7 @@
 <ul class="navbar-nav mx-auto"> 
             <li class="nav-item"> 
                 <a class="nav-link" href="#"> 
-                        <img src="sa.png" width="100" height="55" alt="">
+                        <img src="./sa.png" width="100" height="55" alt="">
                 </a> 
             </li> 
         </ul> 
@@ -67,30 +67,20 @@
       
       
 
-            <div class="search"> 
-      
-              <div class="row sm-2">
-                  <div class="col-lg-6 mx-auto">
-                      <form action="">
-                        <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4">
-                          <div class="input-group">
-                            <input type="search" id="myInput" onkeyup="search()" placeholder="What're you searching for?" aria-describedby="button-addon1" class="form-control border-0 bg-light" style="border-radius: 20px;">
-                            <div class="input-group-append">
-                              <button style="border-radius: 20px;" class="btn btn-warning" onclick="search()">Search</button>
-                            </div>
-                          </div>
-                        </div>
-                      </form>
+      <div class="search"> 
+        <div class="row sm-4">
+            <div class="col-lg-6 mx-auto">
+                  <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4">
+                    <div class="input-group">
+                      <input type="search"  id="myInput"   placeholder="What're you searching for?" aria-describedby="button-addon1" class="form-control border-0 bg-light" style="border-radius: 20px;">
+                      <div class="input-group-append">
+                        <button style="border-radius: 20px;" class="btn btn-warning" id="search" onclick="search()">Search</button>
+                      </div>
+                    </div>
                   </div>
-                </div>
-          
-          
+            </div>
           </div>
-
-
-
-
-
+    </div>
     
           <div class="content" id="content">
             <div class="row row-cols-3 row-cols-md-6" id="myData">
@@ -98,7 +88,7 @@
               <% data.forEach(function(data) {  %>
     <div class="col mb-3"   id="<%=data._id%>" onclick="fun(this.id)" name="box" >
       <div class="contentinside h-80" >
-                         <img src="<%=data.images.poster%>"  onerror="standby()" class="card-img-top h-50" id="foo" />
+                         <img src="<%=data.images.poster%>"  class="card-img-top h-50" id="foo" />
                           <p class="card-title text-center" id="fetch"> <%=data.title%> </p> 
                          </div> 
                         </div>
@@ -117,113 +107,33 @@
               }
             </style>
     
-            <script>
-         
-function search(){
 
-
-var input, li, i;
-input = document.getElementById("myInput").value;
-
-const input1 = input.charAt(0).toUpperCase() + input.slice(1);
-li = document.getElementById("fetch").innerText;
-content=document.getElementById("content");
-console.log(input);
-console.log(li);
-'<% data.forEach(function(data) { %>'
-if(input1== '<%=data.title%>' ){
-console.log("found");
-
-$("#content").html("");
-
-var text=` <div class="row row-cols-3 row-cols-md-6" id="myData">
-
-
-  <div class="col mb-3"   id="<%=data._id%>" onclick="fun(this.id)" name="box" >
-                    <div class="card h-80" >
-                         <img src="<%=data.images.poster%>"  onerror="standby()" class="card-img-top h-50" id="foo" />
-                          <p class="card-title text-center"> <%=data.title%> </p> 
-                         </div> 
-                        </div>
-          </div>
-            `;
-            $("#content").html(text);
-    
-}
-
-
-else{
-console.log("not found");
-
-}
-'<%});%>' 
-
-
-}
-
-                    
-          function fun(id){
-            console.log(id);
-                 window.location.href = "/show/"+id;
-            //      var addr = "/show/"+id;
-            // var xhr = new XMLHttpRequest();
-            // xhr.open('POST', addr, true);
-            // xhr.send();
-                     
-                    }
-    
-              
-             </script>
              
            <center>
             <button type="button" class="btn btn-primary" onclick="myfunction()">Next</button>
           </center>
       <script>
+        
+function search(){
+  var input;
+input = document.getElementById("myInput").value;
+const inputdata = input.charAt(0).toUpperCase() + input.slice(1);
+window.location.href = "/shows/search/"+inputdata;
+}
+     
+          function fun(id){
+          
+                 window.location.href = "/show/"+id;
+                     
+                    }
           function myfunction() {
            
               window.location.href = "/show-next";
           }
       </script>
-    
-    
-       
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-          
-
-
 <br>
 <br>
 <br>
-
-
-
-
-
-
-
-
     <div class="footer">
 <div class="home" onclick="location.href='/';"> 
     <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-house" fill="currentColor" xmlns="http://www.w3.org/2000/svg">

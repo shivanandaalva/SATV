@@ -46,42 +46,42 @@
   }
   </script>
   
-
-        <div class="search"> 
+  <div class="search"> 
   
-          <div class="row sm-2">
-              <div class="col-lg-6 mx-auto">
-              
-                    <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4">
-                      <div class="input-group">
-                        <input type="search"  id="myInput"  placeholder="What're you searching for?" aria-describedby="button-addon1" class="form-control border-0 bg-light" style="border-radius: 20px;">
-                        <div class="input-group-append">
-                            <button style="border-radius: 20px;" class="btn btn-warning" onclick="search()">Search</button>
-                        </div>
-                      </div>
-                    </div>
-                 
+    <div class="row sm-2">
+        <div class="col-lg-6 mx-auto">
+        
+              <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4">
+                <div class="input-group">
+                  <input type="search"  id="myInput"  placeholder="What're you searching for?" aria-describedby="button-addon1" class="form-control border-0 bg-light" style="border-radius: 20px;">
+                  <div class="input-group-append">
+                      <button style="border-radius: 20px;" class="btn btn-warning" onclick="search()">Search</button>
+                  </div>
+                </div>
               </div>
-            </div>
-      
-      
+           
+        </div>
       </div>
+
+
+</div>
+
 
 
 
     
     <div class="content" id="content">
         <div class="row row-cols-3 row-cols-md-6" id="myData">
-
+         
      
 <div class="col mb-3"  id="<%=data.imdbID%>" onclick= "fun(this.id)">
                 <div class="card h-80" >
-                     <img src="<%=data.Poster%>"  onerror="standby()" class="card-img-top h-50" id="foo" />
+                     <img src="<%=data.Poster%>"  class="card-img-top h-50" id="foo" />
                       <p class="card-title text-center" id="fetch"> <%=data.Title%> </p> 
                      </div> 
                     </div>
            
-              
+                  
             
           </div>
         </div>
@@ -92,29 +92,21 @@
 <script>
 
 
-async function search(){
+function search(){
 
 var input;
 input = document.getElementById("myInput").value;
 const input1 = input.charAt(0).toUpperCase() + input.slice(1);
 var i=1;
-
-
-window.location.href = "/movie/search/"+input1;
-
-
-
+window.location.href = "/shows/search/"+input1;
 
 }
 
 
-
-                function standby(){
-                  document.getElementById('foo').src = '/logos/shiv.jpg'
-                }
                 
       function fun(id){
-        window.location.href = "/movie/"+id;
+        console.log(id);
+                 window.location.href = "/show/"+id;
                 }
 
 
@@ -128,7 +120,7 @@ window.location.href = "/movie/search/"+input1;
   <script>
       function myfunction() {
        
-          window.location.href = "/next";
+          window.location.href = "/show-next";
       }
   </script>
 

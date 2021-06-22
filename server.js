@@ -109,7 +109,7 @@ app.get('/previous', (req, res) => {
     async function getdetails() {
       try {
         var input = req.params.input;
-        const response = await axios.get('https://www.omdbapi.com/?t='+input+'&apikey=bfbe2f73')
+        const response = await axios.get('https://www.omdbapi.com/?t='+input+'&type=movie&apikey=bfbe2f73')
           var data = response.data;
           console.log(data);
           res.render('movie-search',{data:data});
@@ -222,6 +222,23 @@ getdetails();
       getdetails();
 
     })
+
+    app.get('/shows/search/:input', (req, res) => {
+      async function getdetails() {
+        try {
+          var input = req.params.input;
+          const response = await axios.get('https://www.omdbapi.com/?t='+input+'&type=series&apikey=bfbe2f73')
+            var data = response.data;
+            console.log(data);
+            res.render('shows-search',{data:data});
+        } catch (error) {
+          console.error(error);
+        }
+      }
+      getdetails();
+      
+    })
+    
   app.get('/animes', (req, res) => {
         res.render('animes');
   })
