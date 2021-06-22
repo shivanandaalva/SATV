@@ -102,7 +102,7 @@ color: white;
   <div class="row row-cols-3 row-cols-md-6" id="myData">
 
     <% for(var i=0;i<=5;i++) {  %>
-<div class="col mb-3"  id="<%=data[i].torrents["en"]["720p"].url%>" onclick= "abc(this.id)">
+<div class="col mb-3"  id="<%=data[i]._id%>" onclick= "abc(this.id)">
           <div class="contentinside h-80" >
                <img src="<%=data[i].images.poster%>"  onerror="standby()" class="card-img-top h-50" id="foo" />
                 <p class="card-title text-center"> <%=data[i].title%> </p> 
@@ -124,10 +124,8 @@ color: white;
           function standby(){
             document.getElementById('foo').src = '/logos/shiv.jpg'
           }      
-function abc(clicked){
-            console.log(clicked);
-            localStorage.setItem('magnet', clicked);
-            window.location.href = "./webtorrentplayer/index.html";
+function abc(id){
+  window.location.href = "/movie/"+id;
           }
 </script>
 <h1>&nbsp;Shows</h1>

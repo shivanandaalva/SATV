@@ -64,6 +64,24 @@ function closeNav() {
   document.getElementById("mySidenav").style.width = "0";
 }
 </script>
+
+<div class="search"> 
+  <div class="row sm-4">
+      <div class="col-lg-6 mx-auto">
+            <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4">
+              <div class="input-group">
+                <input type="search"  id="myInput"   placeholder="What're you searching for?" aria-describedby="button-addon1" class="form-control border-0 bg-light" style="border-radius: 20px;">
+                <div class="input-group-append">
+                  <button style="border-radius: 20px;" class="btn btn-warning" id="search" onclick="search()">Search</button>
+                </div>
+              </div>
+            </div>
+      </div>
+    </div>
+</div>
+
+
+
       <div class="content" id="content">
         <div class="row row-cols-3 row-cols-md-6" id="myData">
           <% data.forEach(function(data) { %>
