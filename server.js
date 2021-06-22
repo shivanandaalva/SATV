@@ -15,9 +15,12 @@ app.use(function(req, res, next) {
   next();   
 });
 app.get('/', (req, res) => {
-      const response =  axios.get('https://popcorn-ru.tk/movies/1')
+  async function getdetails() {
+      const response = await axios.get('https://popcorn-ru.tk/movies/1')
         var data = response.data;
         res.render('index',{data:data});
+  }
+  getdetails();
 })
 app.get('/live', (req, res) => {
   async function getdetails() {
