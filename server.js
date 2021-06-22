@@ -16,13 +16,11 @@ app.use(function(req, res, next) {
 });
 app.get('/', (req, res) => {
   async function getdetails() {
-    try {
+
       const response = await axios.get('https://popcorn-ru.tk/movies/1')
         var data = response.data;
         res.render('index',{data:data});
-    } catch (error) {
-      console.error(error);
-    }
+   
   }
   getdetails();
 })
