@@ -1,25 +1,24 @@
 const express = require('express')
+const app = express()
 var compression = require('compression')
 const axios = require('axios');
-const app = express()
 var port = process.env.PORT || 3000;
 var bodyParser = require('body-parser')
 app.set('view engine', 'ejs' ); 
+app.use(compression())
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 app.use(express.static(__dirname + '/views'));
-app.use(compression())
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-  With, Content-Type, Accept");
-  res.header("Set-Cookie", "HttpOnly;Secure;SameSite=None");
   next();   
 });
 app.get('/', (req, res) => {
   async function getdetails() {
     try {
-      const response= await axios.get('https://popcorn-ru.tk/movies/1')
-        var data =response.data;
+      const response = await axios.get('https://popcorn-ru.tk/movies/1')
+        var data = response.data;
         res.render('index',{data:data});
     } catch (error) {
       console.error(error);
@@ -33,7 +32,6 @@ app.get('/live', (req, res) => {
       const response= await   axios.get('https://iptv-org.github.io/iptv/channels.json')
         var data =response.data;
         res.render('live',{data:data}); 
-
     } catch (error) {
       console.error(error);
     }
@@ -46,9 +44,7 @@ app.get('/movies', (req, res) => {
     try {
       const response= await   axios.get('https://popcorn-ru.tk/movies/1')
         var data =response.data;
-    
         res.render('movies',{data:data});
-
     } catch (error) {
       console.error(error);
     }
@@ -128,7 +124,7 @@ app.get('/previous', (req, res) => {
     getdetails();
   })
 
-  
+
   app.get('/shows', (req, res) => {
   async function getdetails() {
   try {
@@ -230,19 +226,8 @@ getdetails();
       getdetails();
 
     })
-
   app.get('/animes', (req, res) => {
-  
-  // async function getdetails() {
-  //   try {
-  //     const response= await  axios.get('https://popcorn-ru.tk/animes/1')
-  //       var data =response.data;
         res.render('animes');
-  //   } catch (error) {
-  //     console.error(error);
-  //   }
-  // }
-  // getdetails();
   })
   var a=2;
   app.get('/anime-next', (req, res) => {
@@ -285,7 +270,6 @@ getdetails();
     getdetails();
     }
     })
-
     app.get('/anime/:id', (req, res) => {
       console.log(req.params.id);
       var id=req.params.id;
@@ -303,10 +287,7 @@ getdetails();
     })
 
     app.get('/anime/:id/:season', (req, res) => {
-      
-      console.log(req.params.id);
       var id=req.params.id;
-
       async function getdetails() {
         try {
           const response= await  axios.get('https://popcorn-ru.tk/anime/'+id)
@@ -331,8 +312,6 @@ getdetails();
       }
       getdetails();
     })
-
-  
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
 })
