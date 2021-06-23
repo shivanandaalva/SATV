@@ -60,7 +60,7 @@ function closeNav() {
 }
 </script>
 
-<!-- <div class="search"> 
+<div class="search"> 
   <div class="row sm-4">
       <div class="col-lg-6 mx-auto">
             <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4">
@@ -74,46 +74,21 @@ function closeNav() {
       </div>
     </div>
 </div>
-
 <div class="card-columns">
   <div id="main" class="main">
 
 </div>
   </div>
-
 <script>
 function search(){
 
-  
-  var input=document.getElementById("myInput").value;
-  
-
-$.getJSON('https://iptv-org.github.io/iptv/channels.json', function(data) {
-  data.forEach(function(data) {
-   
-    console.log(data.name);
-  if(input==data.name){
-var text=`<div class="container">
-<div class="row ">
-<div class="col  onclick="abc(this.id)" id='${data.url}' mb-4">
-  <div class="card border-left-success shadow h-100 py-2">
-    <img src="img/tv.jfif" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">${data.name}</h5> 
-      </div>
-      </div>
-      </div>
-      </div>
-      </div>
-      `;
-  $(".main").html(text);    
-    }  
-        
-  })
-});
+var input;
+input = document.getElementById("myInput").value;
+const input1 = input.charAt(0).toUpperCase() + input.slice(1);
+window.location.href = "/live/search/"+input;
  
-} -->
-<!-- </script> -->
+} 
+</script>
       <div class="content" id="content">
         <div class="row row-cols-3 row-cols-md-6" id="myData">
           <% data.forEach(function(data) { %>
@@ -142,8 +117,9 @@ var text=`<div class="container">
 <script>
 
   function abc(url) {   
+   
           localStorage.setItem('watch', url);
-          window.location.href = "watch.html"
+          window.location.href = "/watch"
           }
    </script>
 <div class="footer">

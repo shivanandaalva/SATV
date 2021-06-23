@@ -34,6 +34,26 @@ app.get('/live', (req, res) => {
   }
   getdetails();
 })
+app.get('/live/search/:input', (req, res) => {
+  async function getdetails() {
+    try {
+      var input = req.params.input;
+      const response = await axios.get('https://iptv-org.github.io/iptv/channels.json')
+        var data = response.data;
+        console.log(data);
+        res.render('live-search',{data:data,input:input});
+    } catch (error) {
+      console.error(error);
+    }
+  }
+  getdetails();
+  
+})
+app.get('/watch', (req, res) => {
+ 
+        res.sendFile(__dirname +'/views/watch.html');
+
+})
 app.get('/movies', (req, res) => {
   
   async function getdetails() {
