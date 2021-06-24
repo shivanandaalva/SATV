@@ -22,6 +22,11 @@ app.get('/', (req, res) => {
   }
   getdetails();
 })
+app.get('/donate', (req, res) => {
+
+        res.render('donate');
+
+})
 app.get('/live', (req, res) => {
   async function getdetails() {
     try {
