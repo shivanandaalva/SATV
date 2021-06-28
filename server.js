@@ -265,90 +265,115 @@ getdetails();
     })
     
   app.get('/animes', (req, res) => {
-        res.render('animes');
-  })
-  var a=2;
-  app.get('/anime-next', (req, res) => {
-
-  async function getdetails() {
+     async function getdetails() {
     try {
-      const response= await  axios.get('https://popcorn-ru.tk/animes/'+ a++)
-        var data =response.data;
-        res.render('anime-pages',{data:data});
+      const response= await  axios.get('https://api.streamtape.com/file/listfolder?login=7e75b50e929f540e967d&key=9XM4GADXvgh6mr&folder=bXj9EbMOHL8')
+        var data =response.data.result;
+        var len=response.data.result.folders;
+        console.log(data);
+        res.render('animes',{data:data,len:len});
     } catch (error) {
       console.error(error);
     }
   }
   getdetails();
   })
+  var a=2;
+  // app.get('/anime-next', (req, res) => {
 
-  app.get('/anime-previous', (req, res) => {
-    if(a==1 ){
-    async function getdetails() {
-      try {
-        const response= await  axios.get('https://popcorn-ru.tk/animes/1')
-          var data =response.data;
-          res.render('animes',{data:data});
-      } catch (error) {
-        console.error(error);
-      }
-    }
-    getdetails();
-    }
-    else{
-    async function getdetails() {
-      try {
-        const response= await  axios.get('https://popcorn-ru.tk/animes/'+ a--)
-          var data =response.data;
-          res.render('anime-pages',{data:data});
-      } catch (error) {
-        console.error(error);
-      }
-    }
-    getdetails();
-    }
-    })
-    app.get('/anime/:id', (req, res) => {
-      console.log(req.params.id);
-      var id=req.params.id;
+  // async function getdetails() {
+  //   try {
+  //     const response= await  axios.get('https://popcorn-ru.tk/animes/'+ a++)
+  //       var data =response.data;
+      
+  //       res.render('anime-pages',{data:data});
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // }
+  // getdetails();
+  // })
 
+  // app.get('/anime-previous', (req, res) => {
+  //   if(a==1 ){
+  //   async function getdetails() {
+  //     try {
+  //       const response= await  axios.get('https://popcorn-ru.tk/animes/1')
+  //         var data =response.data;
+  //         res.render('animes',{data:data});
+  //     } catch (error) {
+  //       console.error(error);
+  //     }
+  //   }
+  //   getdetails();
+  //   }
+  //   else{
+  //   async function getdetails() {
+  //     try {
+  //       const response= await  axios.get('https://popcorn-ru.tk/animes/'+ a--)
+  //         var data =response.data;
+  //         res.render('anime-pages',{data:data});
+  //     } catch (error) {
+  //       console.error(error);
+  //     }
+  //   }
+  //   getdetails();
+  //   }
+  //   })
+    // app.get('/anime/:id', (req, res) => {
+    //   console.log(req.params.id);
+    //   var id=req.params.id;
+
+    //   async function getdetails() {
+    //     try {
+    //       const response= await   axios.get('https://popcorn-ru.tk/anime/'+id)
+    //         var data =response.data;
+    //         res.render('anime-season',{data:data,id:req.params.id});
+    //     } catch (error) {
+    //       console.error(error);
+    //     }
+    //   }
+    //   getdetails();
+    // })
+
+    app.get('/anime/season/:id', (req, res) => {
+  
       async function getdetails() {
         try {
-          const response= await   axios.get('https://popcorn-ru.tk/anime/'+id)
-            var data =response.data;
-            res.render('anime-season',{data:data,id:req.params.id});
+          var id=req.params.id;
+          const response= await  axios.get('https://api.streamtape.com/file/listfolder?login=7e75b50e929f540e967d&key=9XM4GADXvgh6mr&folder='+id)
+            var data =response.data.result;
+            var len=response.data.result.folders;
+            res.render('anime-season',{data:data,len:len});
         } catch (error) {
           console.error(error);
         }
       }
       getdetails();
     })
-
-    app.get('/anime/:id/:season', (req, res) => {
-      var id=req.params.id;
+    app.get('/anime/season/episode/:id', (req, res) => {
+ 
       async function getdetails() {
         try {
-          const response= await  axios.get('https://popcorn-ru.tk/anime/'+id)
-            var data =response.data;
-            res.render('anime-episodes',{data:data,id:req.params.id,season:req.params.season});
+          var id=req.params.id;
+          const response= await  axios.get('https://api.streamtape.com/file/listfolder?login=7e75b50e929f540e967d&key=9XM4GADXvgh6mr&folder='+id)
+          var data =response.data.result;
+          var len=response.data.result.files;
+        
+          
+          data.files.sort(function(a, b){return a.name - b.name});
+        
+            res.render('anime-episodes',{data:data,len:len,s:s});
         } catch (error) {
           console.error(error);
         }
       }
       getdetails();
     })
-    app.get('/anime/:id/:season/:ep', (req, res) => {
-      var id=req.params.id;
-      async function getdetails() {
-        try {
-          const response= await  axios.get('https://popcorn-ru.tk/anime/'+id)
-            var data =response.data;
-            res.render('anime-links',{data:data,id:req.params.id,season:req.params.season,ep:req.params.ep});
-        } catch (error) {
-          console.error(error);
-        }
-      }
-      getdetails();
+    app.get('/anime/watch/:link', (req, res) => {
+      var link=req.params.link;
+            res.render('anime-watch',{link:link});
+
     })
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)

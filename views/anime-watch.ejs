@@ -54,22 +54,9 @@
       </br>
      <center>
        
-      <div class="card" style="width: 80%;">
-        <div class="card-header" style="color:white;background:black;" >
-          Magnet link:
-        </div>
-        <ul class="list-group list-group-flush">
-            <% for(var i=0;i<Object.keys(data.episodes).length;i++){ %>
-                <% if (data.episodes[i].season == season) { %>
-                    <% if (data.episodes[i].episode == ep) { %>
-                  
-          <li  style="color:black" onclick=fun(this.id) id="<%=data.episodes[i].torrents['0'].url%>" class="list-group-item"> Link 1</li>
-        
-       <%}%>
-       <%}%>
-       <%}%>
-        </ul>
-      </div>
+      <iframe src="https://streamtape.com/e/<%=link%>" width="800" height="600" allowfullscreen allowtransparency allow="autoplay" scrolling="no" frameborder="0"></iframe>
+      <br>
+      <br>
     </center>
 
 
@@ -77,23 +64,7 @@
          
                 
     
-            <script>
-         
-                    
-          function fun(magnet)
-          {
-
-          
-
-
-            console.log(magnet);
-                  localStorage.setItem('magnet', magnet);
-                  window.location.href = "/webtorrentplayer/index.html";
-       
-                    }
-    
-              
-             </script>
+   
     
  
        
