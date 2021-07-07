@@ -263,7 +263,28 @@ getdetails();
       getdetails();
       
     })
-    
+    app.get('/mahabharat', (req, res) => {
+      async function getdetails() {
+     try {
+       const response= await  axios.get('https://api.streamtape.com/file/listfolder?login=7e75b50e929f540e967d&key=9XM4GADXvgh6mr&folder=RK6YzCwg-Vo')
+       var data =response.data.result;
+       var len=response.data.result.files;
+     
+       
+       data.files.sort(function(a, b){return a.name - b.name});
+     
+         res.render('anime-episodes',{data:data,len:len});
+     } catch (error) {
+       console.error(error);
+     }
+   }
+   getdetails();
+   })
+   app.get('/mahabharat/watch/:link', (req, res) => {
+    var link=req.params.link;
+          res.render('mahabharat-watch',{link:link});
+
+  })
   app.get('/animes', (req, res) => {
      async function getdetails() {
     try {
@@ -363,7 +384,7 @@ getdetails();
           
           data.files.sort(function(a, b){return a.name - b.name});
         
-            res.render('anime-episodes',{data:data,len:len,s:s});
+            res.render('anime-episodes',{data:data,len:len});
         } catch (error) {
           console.error(error);
         }
