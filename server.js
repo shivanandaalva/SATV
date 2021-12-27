@@ -1,11 +1,11 @@
 const express = require('express')
 const app = express()
-var compression = require('compression')
+// var compression = require('compression')
 const axios = require('axios');
 var port = process.env.PORT || 3000;
 var bodyParser = require('body-parser')
 app.set('view engine', 'ejs' ); 
-app.use(compression())
+// app.use(compression())
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 app.use(express.static(__dirname + '/views'));
@@ -16,9 +16,15 @@ app.use(function(req, res, next) {
 });
 app.get('/', (req, res) => {
   async function getdetails() {
-      const response = await axios.get('https://popcorn-ru.tk/movies/1')
+    try {
+      const response =await axios.get('https://popcorn-ru.tk/movies/2')
         var data = response.data;
+        console.log(data);
         res.render('index',{data:data});
+    }
+    catch (error) {
+      console.error(error);
+    }
   }
   getdetails();
 })
@@ -30,7 +36,7 @@ app.get('/donate', (req, res) => {
 app.get('/live', (req, res) => {
   async function getdetails() {
     try {
-      const response= await   axios.get('https://iptv-org.github.io/iptv/channels.json')
+      const response= await axios.get('https://iptv-org.github.io/iptv/channels.json')
         var data =response.data;
         res.render('live',{data:data}); 
     } catch (error) {
