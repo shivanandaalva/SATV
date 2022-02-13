@@ -1,23 +1,38 @@
 const express = require('express')
 const app = express()
-// var compression = require('compression')
-const axios = require('axios');
+var compression = require('compression')
+const axios = require('axios').default;
+var cors = require('cors')
 var port = process.env.PORT || 3000;
 var bodyParser = require('body-parser')
 app.set('view engine', 'ejs' ); 
-// app.use(compression())
+app.use(compression())
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
+app.use(cors())
 app.use(express.static(__dirname + '/views'));
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-  With, Content-Type, Accept");
+    res.header('Access-Control-Allow-Credentials', true);
   next();   
 });
-app.get('/', (req, res) => {
-  async function getdetails() {
+var corsOptions = {
+  origin: 'http://popcorn-ru.tk/movies/1',
+  optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
+  origin: true,
+  credentials: true,
+}
+app.get('/',cors(corsOptions), (req, res) => {
+  const getdetails = async () => {
     try {
-      const response =await axios.get('https://popcorn-ru.tk/movies/2')
+      
+      const response = await axios.get('http://popcorn-ru.tk/movies/1',{
+         withCredentials: true,
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      });
         var data = response.data;
         console.log(data);
         res.render('index',{data:data});
