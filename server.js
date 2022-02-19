@@ -4,7 +4,8 @@ var compression = require('compression')
 const axios = require('axios').default;
 var cors = require('cors')
 var port = process.env.PORT || 3000;
-var bodyParser = require('body-parser')
+var bodyParser = require('body-parser');
+const { render } = require('express/lib/response');
 app.set('view engine', 'ejs' ); 
 app.use(compression())
 app.use(bodyParser.urlencoded({ extended: true }))
@@ -75,6 +76,10 @@ app.get('/live/search/:input', (req, res) => {
   getdetails();
   
 })
+
+// app.get('/live', (req, res) => {
+//   res.sendFile('./views/live.html');
+// })
 app.get('/watch', (req, res) => {
  
         res.sendFile(__dirname +'/views/watch.html');
