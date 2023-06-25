@@ -19,7 +19,7 @@ app.use(function(req, res, next) {
   next();   
 });
 var corsOptions = {
-  origin: 'https://popcorn-time.ga/movies/1',
+  origin: 'https://movies-api.tk/movies/1',
   optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
   origin: true,
   credentials: true,
@@ -28,14 +28,14 @@ app.get('/',cors(corsOptions), (req, res) => {
   const getdetails = async () => {
     try {
       
-      const response = await axios.get('https://popcorn-time.ga/movies/1',{
+      const response = await axios.get('https://movies-api.tk/movies/1',{
          withCredentials: true,
       headers: {
         'Content-Type': 'application/json'
       },
       });
         var data = response.data;
-        console.log(data);
+        // console.log(data);
         res.render('index',{data:data});
     }
     catch (error) {
@@ -52,7 +52,7 @@ app.get('/donate', (req, res) => {
 app.get('/live', (req, res) => {
   async function getdetails() {
     try {
-      const response= await axios.get('https://iptv-org.github.io/iptv/channels.json')
+      const response= await axios.get('https://iptv-org.github.io/api/channels.json')
         var data =response.data;
         res.render('live',{data:data}); 
     } catch (error) {
@@ -65,9 +65,9 @@ app.get('/live/search/:input', (req, res) => {
   async function getdetails() {
     try {
       var input = req.params.input;
-      const response = await axios.get('https://iptv-org.github.io/iptv/channels.json')
+      const response = await axios.get('https://iptv-org.github.io/api/channels.json')
         var data = response.data;
-        console.log(data);
+        // console.log(data);
         res.render('live-search',{data:data,input:input});
     } catch (error) {
       console.error(error);
@@ -89,7 +89,7 @@ app.get('/movies', (req, res) => {
   
   async function getdetails() {
     try {
-      const response= await   axios.get('https://popcorn-time.ga/movies/1')
+      const response= await   axios.get('https://movies-api.tk/movies/1')
         var data =response.data;
         res.render('movies',{data:data});
     } catch (error) {
@@ -102,7 +102,7 @@ var i=2;
 app.get('/next', (req, res) => {
 async function getdetails() {
   try {
-    const response = await  axios.get('https://popcorn-time.ga/movies/'+i++)
+    const response = await  axios.get('https://movies-api.tk/movies/'+i++)
       var data =response.data;
       res.render('pages',{data:data});
 
@@ -116,7 +116,7 @@ app.get('/previous', (req, res) => {
   if(i==1){
   async function getdetails() {
     try {
-      const response= await   axios.get('https://popcorn-time.ga/movies/1')
+      const response= await   axios.get('https://movies-api.tk/movies/1')
         var data =response.data;
         res.render('movies',{data:data});
   
@@ -129,7 +129,7 @@ app.get('/previous', (req, res) => {
   else{
   async function getdetails() {
     try {
-      const response= await  axios.get('https://popcorn-time.ga/movies/'+ i--)
+      const response= await  axios.get('https://movies-api.tk/movies/'+ i--)
         var data =response.data;
         res.render('pages',{data:data});
   
@@ -141,12 +141,12 @@ app.get('/previous', (req, res) => {
   }
   })
   app.get('/movie/:id', (req, res) => {
-    console.log(req.params.id);
+    // console.log(req.params.id);
     var id=req.params.id;
 
     async function getdetails() {
       try {
-        const response= await   axios.get('https://popcorn-time.ga/movie/'+id)
+        const response= await   axios.get('https://movies-api.tk/movie/'+id)
           var data =response.data;
           res.render('movie-links',{data:data,id:req.params.id});
       } catch (error) {
@@ -162,7 +162,7 @@ app.get('/previous', (req, res) => {
         var input = req.params.input;
         const response = await axios.get('https://www.omdbapi.com/?t='+input+'&type=movie&apikey=bfbe2f73')
           var data = response.data;
-          console.log(data);
+          // console.log(data);
           res.render('movie-search',{data:data});
       } catch (error) {
         console.error(error);
@@ -175,7 +175,7 @@ app.get('/previous', (req, res) => {
   app.get('/shows', (req, res) => {
   async function getdetails() {
   try {
-    const response= await  axios.get('https://popcorn-time.ga/shows/1')
+    const response= await  axios.get('https://shows.cf/shows/1')
       var data =response.data;
       res.render('shows',{data:data});
 
@@ -190,7 +190,7 @@ getdetails();
   app.get('/show-next', (req, res) => {
   async function getdetails() {
     try {
-      const response= await  axios.get('https://popcorn-time.ga/shows/'+ a++)
+      const response= await  axios.get('https://shows.cf/shows/'+ a++)
         var data =response.data;
         res.render('show-pages',{data:data});
   
@@ -205,7 +205,7 @@ getdetails();
     if(s==1 ){
     async function getdetails() {
       try {
-        const response= await axios.get('https://popcorn-time.ga/shows/1')
+        const response= await axios.get('https://shows.cf/shows/1')
           var data =response.data;
           res.render('shows',{data:data});
     
@@ -218,7 +218,7 @@ getdetails();
     else{
     async function getdetails() {
       try {
-        const response= await  axios.get('https://popcorn-time.ga/shows/'+ s--)
+        const response= await  axios.get('https://shows.cf/shows/'+ s--)
           var data =response.data;
           res.render('show-pages',{data:data});
     
@@ -230,12 +230,12 @@ getdetails();
     }
     })
     app.get('/show/:id', (req, res) => {
-      console.log(req.params.id);
+      // console.log(req.params.id);
       var id=req.params.id;
     
       async function getdetails() {
         try {
-          const response= await axios.get('https://popcorn-time.ga/show/'+id)
+          const response= await axios.get('https://shows.cf/show/'+id)
             var data =response.data;
             res.render('show-season',{data:data,id:req.params.id});
       
@@ -246,11 +246,11 @@ getdetails();
       getdetails();
     })
     app.get('/show/:id/:season', (req, res) => {
-      console.log(req.params.id);
+      // console.log(req.params.id);
       var id=req.params.id;
       async function getdetails() {
         try {
-          const response= await  axios.get('https://popcorn-time.ga/show/'+id)
+          const response= await  axios.get('https://shows.cf/show/'+id)
             var data =response.data;
             res.render('show-episodes',{data:data,id:req.params.id,season:req.params.season});
         } catch (error) {
@@ -263,7 +263,7 @@ getdetails();
       var id=req.params.id;
       async function getdetails() {
         try {
-          const response= await  axios.get('https://popcorn-time.ga/show/'+id)
+          const response= await  axios.get('https://shows.cf/show/'+id)
             var data =response.data;
             res.render('show-links',{data:data,id:req.params.id,season:req.params.season,ep:req.params.ep});
         } catch (error) {
@@ -280,7 +280,7 @@ getdetails();
           var input = req.params.input;
           const response = await axios.get('https://www.omdbapi.com/?t='+input+'&type=series&apikey=bfbe2f73')
             var data = response.data;
-            console.log(data);
+            // console.log(data);
             res.render('shows-search',{data:data});
         } catch (error) {
           console.error(error);
@@ -317,7 +317,7 @@ getdetails();
       const response= await  axios.get('https://api.streamtape.com/file/listfolder?login=7e75b50e929f540e967d&key=9XM4GADXvgh6mr&folder=bXj9EbMOHL8')
         var data =response.data.result;
         var len=response.data.result.folders;
-        console.log(data);
+        // console.log(data);
         res.render('animes',{data:data,len:len});
     } catch (error) {
       console.error(error);
