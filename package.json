@@ -1,9 +1,12 @@
 {
   "name": "SATV",
   "version": "1.0.0",
-  "description": "dummy",
+  "description": "",
   "main": "server.js",
-  "author": "dummy",
+   "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "SA",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.24.0",
